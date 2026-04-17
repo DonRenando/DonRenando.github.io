@@ -1,1 +1,293 @@
-Hello World
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hellfest - Mon Programme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--hf-black:#0a0a0a;--hf-dark:#1a1a1a;--hf-orange:#e85d26;--hf-gold:#d4a017;--hf-grey:#888;--hf-white:#eee;--hf-green:#27ae60}*{margin:0;padding:0;box-sizing:border-box}body{background:var(--hf-black);color:var(--hf-white);font-family:'Oswald',sans-serif;min-height:100vh;overflow-x:hidden}header{background:linear-gradient(180deg,#111,var(--hf-black));text-align:center;padding:25px 15px 10px;border-bottom:3px solid var(--hf-orange);position:sticky;top:0;z-index:100}header h1{font-family:'Metal Mania',cursive;font-size:2.4rem;color:var(--hf-orange);text-transform:uppercase;letter-spacing:4px;text-shadow:0 0 20px rgba(232,93,38,.5)}header .subtitle{font-size:.85rem;color:var(--hf-grey);letter-spacing:2px;margin-top:2px}.controls{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:10px 10px 6px;background:var(--hf-dark);border-bottom:1px solid #333;position:sticky;top:89px;z-index:99}.tab-btn{background:#333;color:var(--hf-white);border:1px solid #444;padding:8px 14px;font-family:'Oswald',sans-serif;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:all .2s;border-radius:3px}.tab-btn:hover{background:#444}.tab-btn.active{background:var(--hf-orange);color:#fff;border-color:var(--hf-orange)}.tab-btn.now-btn.active{background:var(--hf-green);border-color:var(--hf-green)}.tab-btn.now-btn .pulse{display:inline-block;width:8px;height:8px;background:#2ecc71;border-radius:50%;margin-right:5px;animation:pulse-anim 1.5s infinite}@keyframes pulse-anim{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}.filter-row{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;padding:6px 10px 4px;background:var(--hf-dark);border-bottom:1px solid #333}.sort-row{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;padding:4px 10px 10px;background:var(--hf-dark);border-bottom:1px solid #333}.filter-btn,.sort-btn{background:transparent;color:var(--hf-grey);border:1px solid #444;padding:5px 12px;font-family:'Oswald',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:all .2s;border-radius:2px}.filter-btn:hover,.sort-btn:hover{color:var(--hf-white);border-color:#666}.filter-btn.active{color:var(--hf-gold);border-color:var(--hf-gold)}.sort-btn.active{color:var(--hf-green);border-color:var(--hf-green)}.search-bar{padding:8px 15px;background:var(--hf-dark)}.search-bar input{width:100%;padding:10px 15px;background:#2a2a2a;border:1px solid #444;color:var(--hf-white);font-family:'Oswald',sans-serif;font-size:1rem;border-radius:3px;outline:none}.search-bar input:focus{border-color:var(--hf-orange)}.search-bar input::placeholder{color:#666}.stats-bar{display:flex;justify-content:center;gap:20px;padding:8px 10px;background:var(--hf-black);font-size:.8rem;color:var(--hf-grey);border-bottom:1px solid #222}.stats-bar span strong{color:var(--hf-orange)}#grid{display:grid;grid-template-columns:1fr;gap:0;padding:0;max-width:900px;margin:0 auto}.day-header{padding:12px 15px 6px;background:#111;color:var(--hf-orange);font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:.85rem;border-bottom:1px solid #333}.time-header{padding:8px 15px;background:#181818;color:var(--hf-green);font-weight:600;letter-spacing:1px;font-size:.8rem;border-bottom:1px solid #2a2a2a;border-left:3px solid var(--hf-green)}.band-card{display:flex;align-items:center;gap:12px;padding:12px 15px;background:var(--hf-dark);border-bottom:1px solid #2a2a2a;transition:background .15s}.band-card:hover{background:#252525}.band-card.now-playing{background:#1a2e1a;border-left:3px solid var(--hf-green)}.band-card.now-playing .band-name{color:var(--hf-green)}.now-badge{display:inline-block;background:var(--hf-green);color:#fff;padding:1px 6px;border-radius:2px;font-size:.6rem;font-weight:700;animation:pulse-anim 1.5s infinite;margin-left:6px;vertical-align:middle}.band-info{flex:1;min-width:0}.band-name{font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.band-meta{font-size:.75rem;color:var(--hf-grey);margin-top:2px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}.stage-badge{display:inline-block;padding:1px 7px;border-radius:2px;font-size:.65rem;font-weight:600;color:#fff}.stage-ms1{background:#c0392b}.stage-ms2{background:#2980b9}.stage-warzone{background:#27ae60}.stage-valley{background:#8e44ad}.stage-temple{background:#555}.stage-altar{background:#d35400}.stars{display:flex;gap:0;flex-shrink:0;align-items:center}.star-group{position:relative;width:28px;height:28px;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;font-size:1.3rem;line-height:28px}.star-group .star-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#444;pointer-events:none;z-index:1}.star-group .star-fg{position:absolute;top:0;left:0;height:100%;width:0%;overflow:hidden;pointer-events:none;z-index:2}.star-group .star-fg span{display:block;width:28px;text-align:center;color:var(--hf-gold);text-shadow:0 0 8px rgba(212,160,23,.4)}.star-group .star-click-left,.star-group .star-click-right{position:absolute;top:0;height:100%;z-index:3}.star-group .star-click-left{left:0;width:50%}.star-group .star-click-right{right:0;width:50%}.star-group:hover{transform:scale(1.15)}.rating-display{font-size:.7rem;color:var(--hf-gold);min-width:28px;text-align:center;font-weight:600;margin-left:4px}.empty-state{text-align:center;padding:60px 20px;color:#555;font-size:1.1rem}.export-bar{text-align:center;padding:20px;background:var(--hf-dark);border-top:1px solid #333;margin-top:20px}.export-btn{background:var(--hf-orange);color:#fff;border:none;padding:12px 30px;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;cursor:pointer;border-radius:3px;margin:5px;transition:all .2s}.export-btn:hover{background:#d14d1a;transform:translateY(-1px)}.export-btn.secondary{background:#444}.export-btn.secondary:hover{background:#555}.io-bar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:15px 20px;background:#111;border-top:1px solid #333}.io-btn{background:#2a6b3a;color:#fff;border:none;padding:10px 20px;font-family:'Oswald',sans-serif;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;cursor:pointer;border-radius:3px;transition:all .2s}.io-btn:hover{background:#35854a;transform:translateY(-1px)}.io-btn.import-btn{background:#2980b9}.io-btn.import-btn:hover{background:#3498db}.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#27ae60;color:#fff;padding:12px 24px;border-radius:6px;font-family:'Oswald',sans-serif;font-size:.9rem;font-weight:600;z-index:400;box-shadow:0 4px 15px rgba(0,0,0,.4);animation:toastIn .3s ease,toastOut .3s ease 2.2s forwards;max-width:90vw;text-align:center}.toast.error{background:#c0392b}@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}@keyframes toastOut{from{opacity:1}to{opacity:0}}@media(min-width:600px){header h1{font-size:3rem}.band-card{padding:14px 20px}.star-group{width:32px;height:32px;font-size:1.4rem;line-height:32px}.star-group .star-fg span{width:32px}}#scrollTop{position:fixed;bottom:20px;right:20px;width:44px;height:44px;background:var(--hf-orange);color:#fff;border:none;border-radius:50%;font-size:1.3rem;cursor:pointer;display:none;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.5)}.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:300;justify-content:center;align-items:center;padding:20px}.modal-overlay.show{display:flex}.modal-content{background:var(--hf-dark);border:1px solid #444;border-radius:6px;padding:30px;max-width:500px;width:100%;max-height:80vh;overflow-y:auto;text-align:center}.modal-content h2{font-family:'Metal Mania',cursive;color:var(--hf-orange);font-size:1.5rem;margin-bottom:20px}.modal-content .summary-item{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #333;font-size:.9rem}.modal-content .summary-stars{color:var(--hf-gold)}.modal-close{margin-top:20px;background:#444;color:#fff;border:none;padding:10px 25px;font-family:'Oswald',sans-serif;font-size:.9rem;cursor:pointer;border-radius:3px}
+</style>
+</head>
+<body>
+<header><h1 id="festTitle"></h1><div class="subtitle" id="festSubtitle"></div></header>
+<div class="controls" id="dayTabs"></div>
+<div class="filter-row" id="stageFilters"></div>
+<div class="sort-row" id="sortRow"></div>
+<div class="search-bar"><input type="text" id="searchInput" placeholder="Rechercher un groupe..."></div>
+<div class="stats-bar" id="statsBar"></div>
+<div id="grid"></div>
+<div class="export-bar"><button class="export-btn" onclick="showSummary()">Mon recap</button><button class="export-btn secondary" onclick="resetAll()">Reset</button></div>
+<div class="io-bar"><button class="io-btn" onclick="exportRatings()">Exporter mes notes</button><button class="io-btn import-btn" onclick="document.getElementById('importFile').click()">Importer des notes</button><input type="file" id="importFile" accept=".json" style="display:none" onchange="importRatings(event)">
+  Crédit: @DonRenando
+</div>
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<div class="modal-overlay" id="modal"><div class="modal-content" id="modalBody"></div></div>
+
+<script>
+/* ===========================================================================
+   CONFIGURATION FESTIVAL
+   
+   Pour passer a une autre edition modifier :
+   1. FESTIVAL.name    → nom du festival
+   2. FESTIVAL.year    → annee
+   3. FESTIVAL.dates   → correspondance "label jour" → "date ISO"
+   4. FESTIVAL.days    → liste ordonnee des jours (labels)
+   5. FESTIVAL.stages  → scenes avec id, classe CSS, nom court, ordre
+   6. BANDS            → tableau des concerts
+   =========================================================================== */
+var FESTIVAL = {
+  name: "HELLFEST",
+  year: 2026,
+  // Correspondance label jour → date ISO (pour le mode "EN LIVE")
+  dates: {
+    "Jeudi 18":    "2026-06-18",
+    "Vendredi 19": "2026-06-19",
+    "Samedi 20":   "2026-06-20",
+    "Dimanche 21": "2026-06-21"
+  },
+  // Ordre des onglets jour
+  days: ["Jeudi 18", "Vendredi 19", "Samedi 20", "Dimanche 21"],
+  // Scenes : id=nom complet, css=classe CSS couleur, short=label court, order=tri
+  stages: [
+    { id: "MAINSTAGE 01", css: "stage-ms1",     short: "MS1",     order: 0 },
+    { id: "MAINSTAGE 02", css: "stage-ms2",     short: "MS2",     order: 1 },
+    { id: "WARZONE",      css: "stage-warzone", short: "WARZONE", order: 2 },
+    { id: "VALLEY",       css: "stage-valley",  short: "VALLEY",  order: 3 },
+    { id: "TEMPLE",       css: "stage-temple",  short: "TEMPLE",  order: 4 },
+    { id: "ALTAR",        css: "stage-altar",   short: "ALTAR",   order: 5 }
+  ]
+};
+
+/* Programmation : {name, day, stage, start, end} */
+var BANDS = [
+// ——— JEUDI 18 ———
+{name:"WE CAME AS ROMANS",day:"Jeudi 18",stage:"MAINSTAGE 01",start:"16:00",end:"16:40"},
+{name:"THE PLOT IN YOU",day:"Jeudi 18",stage:"MAINSTAGE 01",start:"17:30",end:"18:10"},
+{name:"BREAKING BENJAMIN",day:"Jeudi 18",stage:"MAINSTAGE 01",start:"19:05",end:"19:55"},
+{name:"PAPA ROACH",day:"Jeudi 18",stage:"MAINSTAGE 01",start:"21:20",end:"22:25"},
+{name:"BRING ME THE HORIZON",day:"Jeudi 18",stage:"MAINSTAGE 01",start:"23:35",end:"00:50"},
+{name:"MIKKEY DEE WITH FRIENDS",day:"Jeudi 18",stage:"MAINSTAGE 02",start:"16:45",end:"17:25"},
+{name:"THE PRETTY RECKLESS",day:"Jeudi 18",stage:"MAINSTAGE 02",start:"18:15",end:"19:00"},
+{name:"DEEP PURPLE",day:"Jeudi 18",stage:"MAINSTAGE 02",start:"20:00",end:"21:15"},
+{name:"ALICE COOPER",day:"Jeudi 18",stage:"MAINSTAGE 02",start:"22:30",end:"23:30"},
+{name:"ALESTORM",day:"Jeudi 18",stage:"MAINSTAGE 02",start:"00:55",end:"01:45"},
+{name:"SATANIC SURFERS",day:"Jeudi 18",stage:"WARZONE",start:"16:45",end:"17:25"},
+{name:"SHELTER",day:"Jeudi 18",stage:"WARZONE",start:"18:15",end:"19:00"},
+{name:"LAGWAGON",day:"Jeudi 18",stage:"WARZONE",start:"20:00",end:"21:00"},
+{name:"ALL TIME LOW",day:"Jeudi 18",stage:"WARZONE",start:"22:10",end:"23:10"},
+{name:"SOCIAL DISTORTION",day:"Jeudi 18",stage:"WARZONE",start:"00:30",end:"01:30"},
+{name:"TRUCKFIGHTERS",day:"Jeudi 18",stage:"VALLEY",start:"16:00",end:"16:40"},
+{name:"ELDER",day:"Jeudi 18",stage:"VALLEY",start:"17:30",end:"18:10"},
+{name:"THE INSPECTOR CLUZO",day:"Jeudi 18",stage:"VALLEY",start:"19:05",end:"19:55"},
+{name:"UNCLE ACID AND THE DEADBEATS",day:"Jeudi 18",stage:"VALLEY",start:"21:05",end:"22:05"},
+{name:"KADAVAR",day:"Jeudi 18",stage:"VALLEY",start:"23:15",end:"00:25"},
+{name:"PERCHTA",day:"Jeudi 18",stage:"TEMPLE",start:"16:45",end:"17:25"},
+{name:"WINTERFYLLETH",day:"Jeudi 18",stage:"TEMPLE",start:"18:15",end:"19:00"},
+{name:"BORKNAGAR",day:"Jeudi 18",stage:"TEMPLE",start:"20:00",end:"21:00"},
+{name:"SKALD",day:"Jeudi 18",stage:"TEMPLE",start:"22:10",end:"23:10"},
+{name:"FEUERSCHWANZ",day:"Jeudi 18",stage:"TEMPLE",start:"00:30",end:"01:30"},
+{name:"SKAPHOS",day:"Jeudi 18",stage:"ALTAR",start:"16:00",end:"16:40"},
+{name:"DEVANGELIC",day:"Jeudi 18",stage:"ALTAR",start:"17:30",end:"18:10"},
+{name:"RIVERS OF NIHIL",day:"Jeudi 18",stage:"ALTAR",start:"19:05",end:"19:55"},
+{name:"THE HALO EFFECT",day:"Jeudi 18",stage:"ALTAR",start:"21:05",end:"22:05"},
+{name:"IGORRR",day:"Jeudi 18",stage:"ALTAR",start:"23:15",end:"00:25"},
+// ——— VENDREDI 19 ———
+{name:"BLACKRAIN",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"11:05",end:"11:35"},
+{name:"WINGS OF STEEL",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"12:15",end:"12:45"},
+{name:"SORTILEGE",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"13:35",end:"14:15"},
+{name:"QUEENSRYCHE",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"15:05",end:"15:50"},
+{name:"ACCEPT",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"16:45",end:"17:35"},
+{name:"HELLOWEEN",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"18:35",end:"19:55"},
+{name:"IRON MAIDEN",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"21:00",end:"23:10"},
+{name:"ULTRA VOMIT",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"00:50",end:"02:00"},
+{name:"URAVENA",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"10:30",end:"11:00"},
+{name:"RETURN TO DUST",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"11:40",end:"12:10"},
+{name:"BROTHERS OF METAL",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"12:50",end:"13:30"},
+{name:"TESSERACT",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"14:20",end:"15:00"},
+{name:"BLOODYWOOD",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"15:55",end:"16:40"},
+{name:"SEPULTURA",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"17:40",end:"18:30"},
+{name:"OPETH",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"20:00",end:"20:55"},
+{name:"SABATON",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"23:15",end:"00:45"},
+{name:"WAKE THE DEAD",day:"Vendredi 19",stage:"WARZONE",start:"11:05",end:"11:35"},
+{name:"GRIDIRON",day:"Vendredi 19",stage:"WARZONE",start:"12:15",end:"12:45"},
+{name:"DIE SPITZ",day:"Vendredi 19",stage:"WARZONE",start:"13:35",end:"14:15"},
+{name:"POINT MORT",day:"Vendredi 19",stage:"WARZONE",start:"15:05",end:"15:50"},
+{name:"DYING WISH",day:"Vendredi 19",stage:"WARZONE",start:"16:45",end:"17:35"},
+{name:"CEREMONY",day:"Vendredi 19",stage:"WARZONE",start:"18:35",end:"19:25"},
+{name:"MALEVOLENCE",day:"Vendredi 19",stage:"WARZONE",start:"20:35",end:"21:35"},
+{name:"LA DISPUTE",day:"Vendredi 19",stage:"WARZONE",start:"22:45",end:"23:45"},
+{name:"THE DILLINGER ESCAPE PLAN",day:"Vendredi 19",stage:"WARZONE",start:"00:55",end:"02:00"},
+{name:"DRAGUNOV",day:"Vendredi 19",stage:"VALLEY",start:"10:30",end:"11:00"},
+{name:"YAROSTAN",day:"Vendredi 19",stage:"VALLEY",start:"11:40",end:"12:10"},
+{name:"REZN",day:"Vendredi 19",stage:"VALLEY",start:"12:50",end:"13:30"},
+{name:"CONJURER",day:"Vendredi 19",stage:"VALLEY",start:"14:20",end:"15:00"},
+{name:"STONED JESUS",day:"Vendredi 19",stage:"VALLEY",start:"15:55",end:"16:40"},
+{name:"TORCHE",day:"Vendredi 19",stage:"VALLEY",start:"17:40",end:"18:30"},
+{name:"LOATHE",day:"Vendredi 19",stage:"VALLEY",start:"19:30",end:"20:30"},
+{name:"SLIFT",day:"Vendredi 19",stage:"VALLEY",start:"21:40",end:"22:40"},
+{name:"MASTODON",day:"Vendredi 19",stage:"VALLEY",start:"23:50",end:"00:50"},
+{name:"MOURIR",day:"Vendredi 19",stage:"TEMPLE",start:"11:05",end:"11:35"},
+{name:"KILLUS",day:"Vendredi 19",stage:"TEMPLE",start:"12:15",end:"12:45"},
+{name:"PONTE DEL DIAVOLO",day:"Vendredi 19",stage:"TEMPLE",start:"13:35",end:"14:15"},
+{name:"EINHERJER",day:"Vendredi 19",stage:"TEMPLE",start:"15:05",end:"15:50"},
+{name:"TRELDOM",day:"Vendredi 19",stage:"TEMPLE",start:"16:45",end:"17:35"},
+{name:"CARACH ANGREN",day:"Vendredi 19",stage:"TEMPLE",start:"18:35",end:"19:25"},
+{name:"ROTTING CHRIST",day:"Vendredi 19",stage:"TEMPLE",start:"20:35",end:"21:35"},
+{name:"MY DYING BRIDE",day:"Vendredi 19",stage:"TEMPLE",start:"22:45",end:"23:45"},
+{name:"THE GATHERING",day:"Vendredi 19",stage:"TEMPLE",start:"00:55",end:"02:00"},
+{name:"IMPUREZA",day:"Vendredi 19",stage:"ALTAR",start:"10:30",end:"11:00"},
+{name:"ESODIC",day:"Vendredi 19",stage:"ALTAR",start:"11:40",end:"12:10"},
+{name:"CRYPTA",day:"Vendredi 19",stage:"ALTAR",start:"12:50",end:"13:30"},
+{name:"BLOOD RED THRONE",day:"Vendredi 19",stage:"ALTAR",start:"14:20",end:"15:00"},
+{name:"SINSAENUM",day:"Vendredi 19",stage:"ALTAR",start:"15:55",end:"16:40"},
+{name:"SYLOSIS",day:"Vendredi 19",stage:"ALTAR",start:"17:40",end:"18:30"},
+{name:"DECAPITATED",day:"Vendredi 19",stage:"ALTAR",start:"19:30",end:"20:30"},
+{name:"PERIPHERY",day:"Vendredi 19",stage:"ALTAR",start:"21:40",end:"22:40"},
+{name:"BLOOD INCANTATION",day:"Vendredi 19",stage:"ALTAR",start:"23:50",end:"00:50"},
+// ——— SAMEDI 20 ———
+{name:"SLAY SQUAD",day:"Samedi 20",stage:"MAINSTAGE 01",start:"11:05",end:"11:35"},
+{name:"THORNHILL",day:"Samedi 20",stage:"MAINSTAGE 01",start:"12:25",end:"13:05"},
+{name:"HOUSE OF PROTECTION",day:"Samedi 20",stage:"MAINSTAGE 01",start:"13:55",end:"14:35"},
+{name:"ENHANCER",day:"Samedi 20",stage:"MAINSTAGE 01",start:"15:25",end:"16:05"},
+{name:"STATIC-X",day:"Samedi 20",stage:"MAINSTAGE 01",start:"16:55",end:"17:40"},
+{name:"TOM MORELLO",day:"Samedi 20",stage:"MAINSTAGE 01",start:"18:35",end:"19:25"},
+{name:"A PERFECT CIRCLE",day:"Samedi 20",stage:"MAINSTAGE 01",start:"20:35",end:"21:45"},
+{name:"LIMP BIZKIT",day:"Samedi 20",stage:"MAINSTAGE 01",start:"23:10",end:"00:40"},
+{name:"LOCOMUERTE",day:"Samedi 20",stage:"MAINSTAGE 02",start:"10:30",end:"11:00"},
+{name:"INSANITY ALERT",day:"Samedi 20",stage:"MAINSTAGE 02",start:"11:40",end:"12:20"},
+{name:"ESCUELA GRIND",day:"Samedi 20",stage:"MAINSTAGE 02",start:"13:10",end:"13:50"},
+{name:"GATECREEPER",day:"Samedi 20",stage:"MAINSTAGE 02",start:"14:40",end:"15:20"},
+{name:"CRISIX",day:"Samedi 20",stage:"MAINSTAGE 02",start:"16:10",end:"16:50"},
+{name:"CAVALERA CHAOS A.D.",day:"Samedi 20",stage:"MAINSTAGE 02",start:"17:45",end:"18:30"},
+{name:"ANTHRAX",day:"Samedi 20",stage:"MAINSTAGE 02",start:"19:30",end:"20:30"},
+{name:"MEGADETH",day:"Samedi 20",stage:"MAINSTAGE 02",start:"21:50",end:"23:05"},
+{name:"VOLBEAT",day:"Samedi 20",stage:"MAINSTAGE 02",start:"00:45",end:"02:00"},
+{name:"COLD.CAPSULE",day:"Samedi 20",stage:"WARZONE",start:"10:30",end:"11:00"},
+{name:"BRUIT",day:"Samedi 20",stage:"WARZONE",start:"11:40",end:"12:20"},
+{name:"FANGE",day:"Samedi 20",stage:"WARZONE",start:"13:10",end:"13:50"},
+{name:"PSYCHONAUT",day:"Samedi 20",stage:"WARZONE",start:"14:40",end:"15:20"},
+{name:"PIGS PIGS PIGS PIGS PIGS PIGS PIGS",day:"Samedi 20",stage:"WARZONE",start:"16:10",end:"16:50"},
+{name:"GOD IS AN ASTRONAUT",day:"Samedi 20",stage:"WARZONE",start:"17:45",end:"18:30"},
+{name:"THE YOUNG GODS",day:"Samedi 20",stage:"WARZONE",start:"19:30",end:"20:30"},
+{name:"AMENRA",day:"Samedi 20",stage:"WARZONE",start:"21:40",end:"22:40"},
+{name:"CULT OF LUNA",day:"Samedi 20",stage:"WARZONE",start:"23:50",end:"00:50"},
+{name:"FALSE REALITY",day:"Samedi 20",stage:"VALLEY",start:"11:05",end:"11:35"},
+{name:"COMBUST",day:"Samedi 20",stage:"VALLEY",start:"12:25",end:"13:05"},
+{name:"KING 810",day:"Samedi 20",stage:"VALLEY",start:"13:55",end:"14:35"},
+{name:"CANCER BATS",day:"Samedi 20",stage:"VALLEY",start:"15:25",end:"16:05"},
+{name:"TRASH TALK",day:"Samedi 20",stage:"VALLEY",start:"16:55",end:"17:40"},
+{name:"CRO-MAGS",day:"Samedi 20",stage:"VALLEY",start:"18:35",end:"19:25"},
+{name:"KUBLAI KHAN TX",day:"Samedi 20",stage:"VALLEY",start:"20:35",end:"21:35"},
+{name:"LIONHEART",day:"Samedi 20",stage:"VALLEY",start:"22:45",end:"23:45"},
+{name:"HATEBREED",day:"Samedi 20",stage:"VALLEY",start:"00:55",end:"02:00"},
+{name:"VIGLJOS",day:"Samedi 20",stage:"TEMPLE",start:"11:05",end:"11:35"},
+{name:"HULDER",day:"Samedi 20",stage:"TEMPLE",start:"12:25",end:"13:05"},
+{name:"NON EST DEUS",day:"Samedi 20",stage:"TEMPLE",start:"13:55",end:"14:35"},
+{name:"1914",day:"Samedi 20",stage:"TEMPLE",start:"15:25",end:"16:05"},
+{name:"GAEREA",day:"Samedi 20",stage:"TEMPLE",start:"16:55",end:"17:40"},
+{name:"ORANSSI PAZUZU",day:"Samedi 20",stage:"TEMPLE",start:"18:35",end:"19:25"},
+{name:"AURA NOIR",day:"Samedi 20",stage:"TEMPLE",start:"20:35",end:"21:35"},
+{name:"OLD MAN'S CHILD",day:"Samedi 20",stage:"TEMPLE",start:"22:45",end:"23:45"},
+{name:"BEHEMOTH",day:"Samedi 20",stage:"TEMPLE",start:"00:55",end:"02:00"},
+{name:"DVRK",day:"Samedi 20",stage:"ALTAR",start:"10:30",end:"11:00"},
+{name:"PROFANATION",day:"Samedi 20",stage:"ALTAR",start:"11:40",end:"12:20"},
+{name:"CABAL",day:"Samedi 20",stage:"ALTAR",start:"13:10",end:"13:50"},
+{name:"DEFEATED SANITY",day:"Samedi 20",stage:"ALTAR",start:"14:40",end:"15:20"},
+{name:"SEVERE TORTURE",day:"Samedi 20",stage:"ALTAR",start:"16:10",end:"16:50"},
+{name:"OBSCURA",day:"Samedi 20",stage:"ALTAR",start:"17:45",end:"18:30"},
+{name:"SEPTICFLESH",day:"Samedi 20",stage:"ALTAR",start:"19:30",end:"20:30"},
+{name:"CARCASS",day:"Samedi 20",stage:"ALTAR",start:"21:40",end:"22:40"},
+{name:"DEICIDE",day:"Samedi 20",stage:"ALTAR",start:"23:50",end:"00:50"},
+// ——— DIMANCHE 21 ———
+{name:"NOT SCIENTISTS",day:"Dimanche 21",stage:"MAINSTAGE 01",start:"11:05",end:"11:35"},
+{name:"THE BONES",day:"Dimanche 21",stage:"MAINSTAGE 01",start:"13:35",end:"14:15"},
+{name:"BLACK VEIL BRIDES",day:"Dimanche 21",stage:"MAINSTAGE 01",start:"16:00",end:"16:45"},
+{name:"THREE DAYS GRACE",day:"Dimanche 21",stage:"MAINSTAGE 01",start:"17:45",end:"18:35"},
+{name:"ARCHITECTS",day:"Dimanche 21",stage:"MAINSTAGE 01",start:"19:45",end:"20:45"},
+{name:"BAD OMENS",day:"Dimanche 21",stage:"MAINSTAGE 01",start:"21:55",end:"23:10"},
+{name:"THE FUNERAL PORTRAIT",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"10:30",end:"11:00"},
+{name:"REVNOIR",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"11:40",end:"12:10"},
+{name:"RESOLVE",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"12:50",end:"13:30"},
+{name:"PRESIDENT",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"14:20",end:"15:05"},
+{name:"THE ATARIS",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"15:10",end:"15:55"},
+{name:"RISE AGAINST",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"18:40",end:"19:40"},
+{name:"THE HIVES",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"20:50",end:"21:50"},
+{name:"THE OFFSPRING",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"23:15",end:"00:30"},
+{name:"KAREN DIO",day:"Dimanche 21",stage:"WARZONE",start:"10:30",end:"11:00"},
+{name:"MAID OF ACE",day:"Dimanche 21",stage:"WARZONE",start:"11:40",end:"12:10"},
+{name:"END IT",day:"Dimanche 21",stage:"WARZONE",start:"12:50",end:"13:30"},
+{name:"DRAIN",day:"Dimanche 21",stage:"WARZONE",start:"14:20",end:"15:05"},
+{name:"BUZZCOCKS",day:"Dimanche 21",stage:"WARZONE",start:"16:00",end:"16:45"},
+{name:"CIRCLE JERKS",day:"Dimanche 21",stage:"WARZONE",start:"17:45",end:"18:35"},
+{name:"AGNOSTIC FRONT",day:"Dimanche 21",stage:"WARZONE",start:"19:45",end:"20:45"},
+{name:"THE ADICTS",day:"Dimanche 21",stage:"WARZONE",start:"21:55",end:"23:10"},
+{name:"ALTA ROSSA",day:"Dimanche 21",stage:"VALLEY",start:"11:05",end:"11:35"},
+{name:"THE DWARVES",day:"Dimanche 21",stage:"VALLEY",start:"12:15",end:"12:45"},
+{name:"GNOME",day:"Dimanche 21",stage:"VALLEY",start:"12:15",end:"12:45"},
+{name:"BLACK TUSK",day:"Dimanche 21",stage:"VALLEY",start:"13:35",end:"14:15"},
+{name:"SOILENT GREEN",day:"Dimanche 21",stage:"VALLEY",start:"15:10",end:"15:55"},
+{name:"PENNYWISE",day:"Dimanche 21",stage:"VALLEY",start:"16:50",end:"17:40"},
+{name:"EYEHATEGOD",day:"Dimanche 21",stage:"VALLEY",start:"16:50",end:"17:40"},
+{name:"CORROSION OF CONFORMITY",day:"Dimanche 21",stage:"VALLEY",start:"18:40",end:"19:40"},
+{name:"ACID BATH",day:"Dimanche 21",stage:"VALLEY",start:"20:50",end:"21:50"},
+{name:"DOWN",day:"Dimanche 21",stage:"VALLEY",start:"23:15",end:"00:30"},
+{name:"SILHOUETTE",day:"Dimanche 21",stage:"TEMPLE",start:"11:05",end:"11:35"},
+{name:"MIDNIGHT ODYSSEY",day:"Dimanche 21",stage:"TEMPLE",start:"12:15",end:"12:45"},
+{name:"THY LIGHT",day:"Dimanche 21",stage:"TEMPLE",start:"13:35",end:"14:15"},
+{name:"SCOUR",day:"Dimanche 21",stage:"TEMPLE",start:"15:10",end:"15:55"},
+{name:"GEHENNA",day:"Dimanche 21",stage:"TEMPLE",start:"16:50",end:"17:40"},
+{name:"WOLVES IN THE THRONE ROOM",day:"Dimanche 21",stage:"TEMPLE",start:"18:40",end:"19:40"},
+{name:"MARDUK",day:"Dimanche 21",stage:"TEMPLE",start:"20:50",end:"21:50"},
+{name:"MAYHEM",day:"Dimanche 21",stage:"TEMPLE",start:"23:15",end:"00:30"},
+{name:"TEMPT FATE",day:"Dimanche 21",stage:"ALTAR",start:"10:30",end:"11:00"},
+{name:"BLOODSTAIN",day:"Dimanche 21",stage:"ALTAR",start:"11:40",end:"12:10"},
+{name:"SUBLIME CADAVERIC DECOMPOSITION",day:"Dimanche 21",stage:"ALTAR",start:"12:50",end:"13:30"},
+{name:"FULCI",day:"Dimanche 21",stage:"ALTAR",start:"14:20",end:"15:05"},
+{name:"SIX FEET UNDER",day:"Dimanche 21",stage:"ALTAR",start:"16:00",end:"16:45"},
+{name:"FORBIDDEN",day:"Dimanche 21",stage:"ALTAR",start:"17:45",end:"18:35"},
+{name:"POSSESSED",day:"Dimanche 21",stage:"ALTAR",start:"19:45",end:"20:45"},
+{name:"NAPALM DEATH",day:"Dimanche 21",stage:"ALTAR",start:"21:55",end:"23:10"}
+];
+/* ===========================================================================
+   FIN ZONE CONFIG — Ne rien modifier en dessous
+   =========================================================================== */
+var STAGE_IDS=FESTIVAL.stages.map(function(s){return s.id}),STAGE_CSS={},STAGE_SHORT={},STAGE_ORDER={};
+FESTIVAL.stages.forEach(function(s){STAGE_CSS[s.id]=s.css;STAGE_SHORT[s.id]=s.short;STAGE_ORDER[s.id]=s.order});
+var STORAGE_KEY=FESTIVAL.name.toLowerCase()+FESTIVAL.year+"_ratings";
+var currentDay="Tous",activeStages=new Set(STAGE_IDS),searchQuery="",currentSort="scene";
+document.getElementById("festTitle").textContent="\u26E7 "+FESTIVAL.name+" "+FESTIVAL.year+" \u26E7";
+document.getElementById("festSubtitle").textContent="Mon programme & notes";
+document.title=FESTIVAL.name+" "+FESTIVAL.year+" - Mon Programme";
+function getRatings(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||{}}catch(e){return{}}}
+function saveRating(k,v){var r=getRatings();if(v===0)delete r[k];else r[k]=v;localStorage.setItem(STORAGE_KEY,JSON.stringify(r))}
+function bandKey(b){return b.name+"|"+b.day}
+function timeToMin(t){var p=t.split(":");var h=parseInt(p[0],10),m=parseInt(p[1],10);if(h<6)h+=24;return h*60+m}
+function getNow(){var now=new Date(),h=now.getHours(),m=now.getMinutes();var nowMin=h*60+m;if(h<6)nowMin=(h+24)*60+m;var d=new Date(now);if(h<6)d.setDate(d.getDate()-1);var iso=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");var day=null;for(var l in FESTIVAL.dates){if(FESTIVAL.dates[l]===iso){day=l;break}}return{day:day,min:nowMin}}
+function isBandNowPlaying(b){var n=getNow();if(!n.day||b.day!==n.day)return false;return n.min>=timeToMin(b.start)&&n.min<timeToMin(b.end)}
+function buildDayTabs(){var h='<button class="tab-btn '+("Tous"===currentDay?"active":"")+'" onclick="setDay(this)" data-day="Tous">Tous</button>';FESTIVAL.days.forEach(function(d){h+='<button class="tab-btn '+(d===currentDay?"active":"")+'" onclick="setDay(this)" data-day="'+d+'">'+d+"</button>"});h+='<button class="tab-btn '+("Notes"===currentDay?"active":"")+'" onclick="setDay(this)" data-day="Notes">\u2B50 Notes</button>';h+='<button class="tab-btn now-btn '+("Now"===currentDay?"active":"")+'" onclick="setDay(this)" data-day="Now"><span class="pulse"></span>EN LIVE</button>';document.getElementById("dayTabs").innerHTML=h}
+function buildStageFilters(){document.getElementById("stageFilters").innerHTML=FESTIVAL.stages.map(function(s){return'<button class="filter-btn '+(activeStages.has(s.id)?"active":"")+'" onclick="toggleStage(this)" data-stage="'+s.id+'">'+s.short+"</button>"}).join("")}
+function buildSortRow(){document.getElementById("sortRow").innerHTML='<button class="sort-btn '+(currentSort==="scene"?"active":"")+'" onclick="setSort(this)" data-sort="scene">Par scene</button><button class="sort-btn '+(currentSort==="heure"?"active":"")+'" onclick="setSort(this)" data-sort="heure">Par heure</button>'}
+function setDay(el){currentDay=el.getAttribute("data-day");buildDayTabs();render()}
+function toggleStage(el){var s=el.getAttribute("data-stage");if(activeStages.has(s))activeStages.delete(s);else activeStages.add(s);buildStageFilters();render()}
+function setSort(el){currentSort=el.getAttribute("data-sort");buildSortRow();render()}
+function getFiltered(){var ratings=getRatings();var list=BANDS.filter(function(b){if(currentDay==="Notes"){if(!ratings[bandKey(b)])return false}else if(currentDay==="Now"){if(!isBandNowPlaying(b))return false}else if(currentDay!=="Tous"&&b.day!==currentDay)return false;if(!activeStages.has(b.stage))return false;if(searchQuery&&!b.name.toLowerCase().includes(searchQuery))return false;return true});var dayIdx={};FESTIVAL.days.forEach(function(d,i){dayIdx[d]=i});if(currentSort==="heure"){list.sort(function(a,b){var da=dayIdx[a.day]||0,db=dayIdx[b.day]||0;if(da!==db)return da-db;var ta=timeToMin(a.start),tb=timeToMin(b.start);if(ta!==tb)return ta-tb;return(STAGE_ORDER[a.stage]||0)-(STAGE_ORDER[b.stage]||0)})}else{list.sort(function(a,b){var da=dayIdx[a.day]||0,db=dayIdx[b.day]||0;if(da!==db)return da-db;var sa=STAGE_ORDER[a.stage]||0,sb=STAGE_ORDER[b.stage]||0;if(sa!==sb)return sa-sb;return timeToMin(a.start)-timeToMin(b.start)})}return list}
+function renderStars(key,rating){var html="",sk=key.replace(/'/g,"&apos;").replace(/"/g,"&quot;");for(var i=1;i<=5;i++){var hv=i-0.5,fv=i,fp=0;if(rating>=fv)fp=100;else if(rating>=hv)fp=50;html+='<div class="star-group"><div class="star-bg">\u2605</div><div class="star-fg" style="width:'+fp+'%"><span>\u2605</span></div><div class="star-click-left" onclick="rate(&quot;'+sk+"&quot;,"+hv+')"></div><div class="star-click-right" onclick="rate(&quot;'+sk+"&quot;,"+fv+')"></div></div>'}if(rating>0)html+='<span class="rating-display">'+rating+"/5</span>";return html}
+function render(){var ratings=getRatings(),filtered=getFiltered(),grid=document.getElementById("grid");if(currentDay==="Now"&&filtered.length===0){grid.innerHTML='<div class="empty-state">Aucun concert en ce moment<br><small style="color:#555">'+FESTIVAL.name+" "+FESTIVAL.year+"</small></div>";updateStats(ratings);return}if(filtered.length===0){grid.innerHTML='<div class="empty-state">Aucun groupe trouv\u00E9</div>';updateStats(ratings);return}var lastDay="",lastTime="",pieces=[];filtered.forEach(function(b){var k=bandKey(b),r=ratings[k]||0,isNow=isBandNowPlaying(b);if((currentDay==="Tous"||currentDay==="Notes"||currentDay==="Now")&&b.day!==lastDay){lastDay=b.day;lastTime="";pieces.push('<div class="day-header">'+b.day+"</div>")}if(currentSort==="heure"&&b.start!==lastTime){lastTime=b.start;pieces.push('<div class="time-header">\uD83D\uDD50 '+b.start+"</div>")}var nowBadge=isNow?'<span class="now-badge">EN LIVE</span>':"";pieces.push('<div class="band-card'+(isNow?" now-playing":"")+'"><div class="band-info"><div class="band-name">'+b.name+nowBadge+'</div><div class="band-meta"><span class="stage-badge '+(STAGE_CSS[b.stage]||"")+'">'+(STAGE_SHORT[b.stage]||b.stage)+"</span><span>"+b.start+" - "+b.end+'</span></div></div><div class="stars">'+renderStars(k,r)+"</div></div>")});grid.innerHTML=pieces.join("");updateStats(ratings)}
+function updateStats(ratings){var tot=Object.keys(ratings).length;var avg=tot?(Object.values(ratings).reduce(function(a,b){return a+b},0)/tot).toFixed(1):"-";var nowCount=BANDS.filter(isBandNowPlaying).length;var nowHtml=nowCount>0?' | <span style="color:var(--hf-green)"><strong>'+nowCount+"</strong> en live</span>":"";document.getElementById("statsBar").innerHTML="<span><strong>"+BANDS.length+"</strong> groupes</span><span><strong>"+tot+"</strong> not\u00E9s</span><span>Moy: <strong>"+avg+"</strong> \u2605</span>"+nowHtml}
+function rate(key,val){var r=getRatings();if(r[key]===val)val=0;saveRating(key,val);render()}
+function showSummary(){var ratings=getRatings();var rated=BANDS.filter(function(b){return ratings[bandKey(b)]}).sort(function(a,b){return ratings[bandKey(b)]-ratings[bandKey(a)]});var body=document.getElementById("modalBody");if(rated.length===0){body.innerHTML='<h2>Mon R\u00E9cap</h2><p style="color:#888">Aucun groupe not\u00E9.</p><button class="modal-close" onclick="closeModal()">Fermer</button>'}else{var items=rated.map(function(b){var r=ratings[bandKey(b)];var s="";for(var i=1;i<=5;i++){if(r>=i)s+="\u2605";else if(r>=i-0.5)s+="\u00BD";else s+="\u2606"}return'<div class="summary-item"><span>'+b.name+' <small style="color:#666">('+b.day+")</small></span><span class=\"summary-stars\">"+s+" "+r+"/5</span></div>"}).join("");var avg=(rated.reduce(function(a,b){return a+ratings[bandKey(b)]},0)/rated.length).toFixed(1);body.innerHTML='<h2>Mon R\u00E9cap</h2><p style="color:#888;margin-bottom:15px">'+rated.length+" groupes not\u00E9s \u2014 Moyenne: "+avg+" \u2605</p>"+items+'<button class="modal-close" onclick="closeModal()">Fermer</button>'}document.getElementById("modal").classList.add("show")}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+document.getElementById("modal").addEventListener("click",function(e){if(e.target.classList.contains("modal-overlay"))closeModal()});
+function resetAll(){if(confirm("Supprimer toutes les notes ?")){localStorage.removeItem(STORAGE_KEY);render()}}
+function showToast(msg,isErr){var ex=document.querySelector(".toast");if(ex)ex.remove();var t=document.createElement("div");t.className="toast"+(isErr?" error":"");t.textContent=msg;document.body.appendChild(t);setTimeout(function(){t.remove()},2500)}
+function exportRatings(){var ratings=getRatings();if(Object.keys(ratings).length===0){showToast("Aucune note!",true);return}var data={app:FESTIVAL.name.toLowerCase(),year:FESTIVAL.year,version:3,exportDate:new Date().toISOString(),ratings:ratings};var blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});var url=URL.createObjectURL(blob);var a=document.createElement("a");a.href=url;a.download=FESTIVAL.name.toLowerCase()+FESTIVAL.year+"_notes_"+new Date().toISOString().slice(0,10)+".json";document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);showToast(Object.keys(ratings).length+" notes export\u00E9es!")}
+function importRatings(event){var file=event.target.files[0];if(!file)return;var reader=new FileReader();reader.onload=function(e){try{var data=JSON.parse(e.target.result);var ratings;if(data.ratings&&typeof data.ratings==="object")ratings=data.ratings;else if(typeof data==="object"&&!data.app)ratings=data;else throw new Error("x");var valid={},count=0;for(var key in ratings){if(ratings.hasOwnProperty(key)&&typeof ratings[key]==="number"&&ratings[key]>=0.5&&ratings[key]<=5){valid[key]=ratings[key];count++}}if(count===0){showToast("Aucune note valide.",true);return}var existing=getRatings();if(Object.keys(existing).length>0){if(confirm("Importer "+count+" notes.\nOK = Fusionner (garder meilleure)\nAnnuler = Remplacer")){for(var k in valid){if(valid.hasOwnProperty(k)&&(!existing[k]||valid[k]>existing[k]))existing[k]=valid[k]}localStorage.setItem(STORAGE_KEY,JSON.stringify(existing))}else{localStorage.setItem(STORAGE_KEY,JSON.stringify(valid))}}else{localStorage.setItem(STORAGE_KEY,JSON.stringify(valid))}render();showToast(count+" notes import\u00E9es!")}catch(err){showToast("Fichier invalide.",true);console.error(err)}};reader.readAsText(file);event.target.value=""}
+document.getElementById("searchInput").addEventListener("input",function(e){searchQuery=e.target.value.toLowerCase().trim();render()});
+window.addEventListener("scroll",function(){document.getElementById("scrollTop").style.display=window.scrollY>400?"block":"none"});
+setInterval(function(){if(currentDay==="Now")render()},30000);
+buildDayTabs();buildStageFilters();buildSortRow();render();
+</script>
+</body>
+</html>
