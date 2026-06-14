@@ -27,15 +27,15 @@ header .subtitle{font-size:.85rem;color:var(--hf-grey);letter-spacing:2px;margin
 .filter-btn.active{color:var(--hf-gold);border-color:var(--hf-gold)}
 .sort-btn.active{color:var(--hf-green);border-color:var(--hf-green)}
 .search-bar{padding:8px 15px;background:var(--hf-dark)}
-.search-bar input{width:100%;padding:10px 15px;background:#2a2a2a;border:1px solid #444;color:var(--hf-white);font-family:'Oswald',sans-serif;font-size:1rem;border-radius:3px;outline:none}
-.search-bar input:focus{border-color:var(--hf-orange)}
-.search-bar input::placeholder{color:#666}
+.search-bar input[type=text]{width:100%;padding:10px 15px;background:#2a2a2a;border:1px solid #444;color:var(--hf-white);font-family:'Oswald',sans-serif;font-size:1rem;border-radius:3px;outline:none}
+.search-bar input[type=text]:focus{border-color:var(--hf-orange)}
+.search-bar input[type=text]::placeholder{color:#666}
 .stats-bar{display:flex;justify-content:center;gap:20px;padding:8px 10px;background:var(--hf-black);font-size:.8rem;color:var(--hf-grey);border-bottom:1px solid #222}
 .stats-bar span strong{color:var(--hf-orange)}
 #grid{display:grid;grid-template-columns:1fr;gap:0;max-width:900px;margin:0 auto}
 .day-header{padding:12px 15px 6px;background:#111;color:var(--hf-orange);font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:.85rem;border-bottom:1px solid #333}
 .time-header{padding:8px 15px;background:#181818;color:var(--hf-green);font-weight:600;letter-spacing:1px;font-size:.8rem;border-bottom:1px solid #2a2a2a;border-left:3px solid var(--hf-green)}
-.band-card{display:flex;align-items:flex-start;gap:12px;padding:12px 15px;background:var(--hf-dark);border-bottom:1px solid #2a2a2a;transition:background .15s;flex-wrap:wrap}
+.band-card{display:flex;align-items:center;gap:12px;padding:12px 15px;background:var(--hf-dark);border-bottom:1px solid #2a2a2a;transition:background .15s;flex-wrap:wrap}
 .band-card:hover{background:#252525}
 .band-card.now-playing{background:#1a2e1a;border-left:3px solid var(--hf-green)}
 .band-card.now-playing .band-name{color:var(--hf-green)}
@@ -47,15 +47,17 @@ header .subtitle{font-size:.85rem;color:var(--hf-grey);letter-spacing:2px;margin
 .stage-badge{display:inline-block;padding:1px 7px;border-radius:2px;font-size:.65rem;font-weight:600;color:#fff}
 .stage-ms1{background:#c0392b}.stage-ms2{background:#2980b9}.stage-warzone{background:#27ae60}
 .stage-valley{background:#8e44ad}.stage-temple{background:#555}.stage-altar{background:#d35400}
-.rating-select-wrap{display:flex;align-items:center;gap:6px;flex-shrink:0}
-.rating-select-wrap select{padding:5px 10px;background:#1e1e1e;border:1px solid #555;color:#888;font-family:'Oswald',sans-serif;font-size:.9rem;font-weight:700;border-radius:4px;cursor:pointer;outline:none;transition:border-color .15s,color .15s,background .15s;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23666'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;padding-right:26px;min-width:90px}
-.rating-select-wrap select:focus{border-color:var(--hf-gold)}
-.rating-select-wrap select.has-value{border-color:var(--hf-gold);color:var(--hf-gold);background-color:#1e1a08;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23d4a017'/%3E%3C/svg%3E")}
-.rating-select-wrap .clear-btn{background:transparent;border:none;color:#444;cursor:pointer;font-size:.85rem;padding:2px 4px;border-radius:2px;transition:color .15s;line-height:1}
-.rating-select-wrap .clear-btn:hover{color:#c0392b}
-.mob-sel{display:none;width:100%;padding:4px 0}
-.mob-sel select{width:100%;padding:10px 6px;font-size:1rem;background:#1e1e1e;color:var(--hf-gold);border:2px solid #555;border-radius:6px;cursor:pointer;font-weight:700}
-.mob-sel select.has-value{border-color:var(--hf-gold);background:#1e1a08}
+/* Rating input */
+.rating-wrap{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.rating-wrap input[type=number]{width:72px;padding:5px 8px;background:#1e1e1e;border:1px solid #555;color:#888;font-family:'Oswald',sans-serif;font-size:.9rem;font-weight:700;border-radius:4px;outline:none;transition:border-color .15s,color .15s,background .15s;-moz-appearance:textfield;text-align:center}
+.rating-wrap input[type=number]::-webkit-inner-spin-button,.rating-wrap input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.rating-wrap input[type=number]:focus{border-color:var(--hf-gold)}
+.rating-wrap input[type=number].has-value{border-color:var(--hf-gold);color:var(--hf-gold);background:#1e1a08}
+.rating-suffix{font-size:.75rem;color:#555;font-family:'Oswald',sans-serif;font-weight:600;flex-shrink:0;transition:color .15s}
+.rating-suffix.has-value{color:var(--hf-gold)}
+.clear-btn{background:transparent;border:none;color:#444;cursor:pointer;font-size:.85rem;padding:2px 4px;border-radius:2px;transition:color .15s;line-height:1}
+.clear-btn:hover{color:#c0392b}
+/* Text note */
 .band-note-row{width:100%;margin-top:6px;display:flex;align-items:flex-start;gap:6px}
 .band-note-row textarea{flex:1;background:#1e1e1e;border:1px solid #333;color:#ccc;font-family:'Oswald',sans-serif;font-size:.78rem;border-radius:4px;padding:5px 8px;resize:vertical;min-height:34px;max-height:120px;outline:none;transition:border-color .15s}
 .band-note-row textarea:focus{border-color:var(--hf-orange)}
@@ -64,8 +66,8 @@ header .subtitle{font-size:.85rem;color:var(--hf-grey);letter-spacing:2px;margin
 .note-toggle{background:transparent;border:1px solid #333;color:#555;padding:3px 7px;border-radius:3px;font-size:.7rem;cursor:pointer;font-family:'Oswald',sans-serif;letter-spacing:.5px;transition:all .15s;white-space:nowrap;flex-shrink:0;margin-top:2px}
 .note-toggle:hover{border-color:#555;color:#aaa}
 .note-toggle.active{border-color:var(--hf-orange);color:var(--hf-orange)}
-@media(min-width:600px){header h1{font-size:3rem}.band-card{padding:14px 20px}.mob-sel{display:none!important}.rating-select-wrap{display:flex!important}}
-@media(max-width:599px){.rating-select-wrap{display:none!important}.mob-sel{display:block!important}.band-card{flex-wrap:wrap;padding:10px 12px}}
+@media(min-width:600px){header h1{font-size:3rem}.band-card{padding:14px 20px}}
+@media(max-width:599px){.band-card{flex-wrap:wrap;padding:10px 12px}.rating-wrap input[type=number]{width:60px;font-size:.85rem}}
 .empty-state{text-align:center;padding:60px 20px;color:#555;font-size:1.1rem}
 .export-bar{text-align:center;padding:20px;background:var(--hf-dark);border-top:1px solid #333;margin-top:20px}
 .export-btn{background:var(--hf-orange);color:#fff;border:none;padding:12px 30px;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;cursor:pointer;border-radius:3px;margin:5px;transition:all .2s}
@@ -103,7 +105,7 @@ header .subtitle{font-size:.85rem;color:var(--hf-grey);letter-spacing:2px;margin
 .band-link-btn:hover{transform:translateY(-1px);filter:brightness(1.15)}
 .btn-spotify{background:#1DB954;color:#fff}
 .btn-youtube{background:#FF0000;color:#fff}
-.btn-wiki{background:#2a2a2a;color:var(--hf-white);border:1px solid #555}
+.btn-wiki{background:#2a2a2a;color:#eee;border:1px solid #555}
 .band-modal-close-btn{margin-top:4px;background:#333;color:#fff;border:none;padding:4px 10px;border-radius:3px;cursor:pointer;font-size:1rem;line-height:1}
 </style>
 </head>
@@ -127,12 +129,12 @@ header .subtitle{font-size:.85rem;color:var(--hf-grey);letter-spacing:2px;margin
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8679;</button>
 <footer style="text-align:center;padding:18px 12px 24px;background:linear-gradient(180deg,#111 0%,#0a0a0a 100%);border-top:1px solid #333;margin-top:0">
   <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:6px">
-    <span style="color:var(--hf-orange);font-size:1.2rem">&#9760;</span>
+    <span style="color:#e85d26;font-size:1.2rem">&#9760;</span>
     <span style="font-family:'Oswald',sans-serif;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:#888">Hellfest Ratings</span>
-    <span style="color:var(--hf-orange);font-size:1.2rem">&#9760;</span>
+    <span style="color:#e85d26;font-size:1.2rem">&#9760;</span>
   </div>
   <div style="font-size:.7rem;color:#555;letter-spacing:1px">
-    Cree par <a href="https://github.com/DonRenando" target="_blank" style="color:var(--hf-gold);text-decoration:none;font-weight:600">@DonRenando</a>
+    Cree par <a href="https://github.com/DonRenando" target="_blank" style="color:#d4a017;text-decoration:none;font-weight:600">@DonRenando</a>
     <span style="margin:0 6px;color:#333">&bull;</span>
     <span style="color:#444">2026</span>
   </div>
@@ -140,9 +142,235 @@ header .subtitle{font-size:.85rem;color:var(--hf-grey);letter-spacing:2px;margin
 <div class="modal-overlay" id="modal"><div class="modal-content" id="modalBody"></div></div>
 <div class="modal-overlay" id="bandModal"><div class="band-modal" id="bandModalBody"></div></div>
 <script>
-var FESTIVAL={name:"HELLFEST",year:2026,dates:{"Jeudi 18":"2026-06-18","Vendredi 19":"2026-06-19","Samedi 20":"2026-06-20","Dimanche 21":"2026-06-21"},days:["Jeudi 18","Vendredi 19","Samedi 20","Dimanche 21"],stages:[{id:"MAINSTAGE 01",css:"stage-ms1",short:"MS1",order:0},{id:"MAINSTAGE 02",css:"stage-ms2",short:"MS2",order:1},{id:"WARZONE",css:"stage-warzone",short:"WARZONE",order:2},{id:"VALLEY",css:"stage-valley",short:"VALLEY",order:3},{id:"TEMPLE",css:"stage-temple",short:"TEMPLE",order:4},{id:"ALTAR",css:"stage-altar",short:"ALTAR",order:5}]};
-var RATING_OPTIONS=[];for(var _v=0;_v<=5;_v+=0.5){RATING_OPTIONS.push(parseFloat(_v.toFixed(1)));}
-var BANDS=[{name:"We Came As Romans",day:"Jeudi 18",stage:"MAINSTAGE 01",start:"16:00",end:"16:40"},{name:"The Plot In You",day:"Jeudi 18",stage:"MAINSTAGE 01",start:"17:30",end:"18:10"},{name:"Breaking Benjamin",day:"Jeudi 18",stage:"MAINSTAGE 01",start:"19:05",end:"19:55"},{name:"Papa Roach",day:"Jeudi 18",stage:"MAINSTAGE 01",start:"21:15",end:"22:25"},{name:"Bring Me The Horizon",day:"Jeudi 18",stage:"MAINSTAGE 01",start:"23:45",end:"01:15"},{name:"Mikkey Dee With Friends",day:"Jeudi 18",stage:"MAINSTAGE 02",start:"16:45",end:"17:25"},{name:"The Pretty Reckless",day:"Jeudi 18",stage:"MAINSTAGE 02",start:"18:15",end:"19:00"},{name:"Deep Purple",day:"Jeudi 18",stage:"MAINSTAGE 02",start:"20:00",end:"21:10"},{name:"Alice Cooper",day:"Jeudi 18",stage:"MAINSTAGE 02",start:"22:30",end:"23:30"},{name:"Tribute To Ozzy Osbourne",day:"Jeudi 18",stage:"MAINSTAGE 02",start:"23:30",end:"23:40"},{name:"Alestorm",day:"Jeudi 18",stage:"MAINSTAGE 02",start:"01:20",end:"02:10"},{name:"Satanic Surfers",day:"Jeudi 18",stage:"WARZONE",start:"16:45",end:"17:25"},{name:"Shelter",day:"Jeudi 18",stage:"WARZONE",start:"18:15",end:"19:00"},{name:"Lagwagon",day:"Jeudi 18",stage:"WARZONE",start:"20:00",end:"21:00"},{name:"All Time Low",day:"Jeudi 18",stage:"WARZONE",start:"22:10",end:"23:10"},{name:"Social Distortion",day:"Jeudi 18",stage:"WARZONE",start:"01:00",end:"02:00"},{name:"Truckfighters",day:"Jeudi 18",stage:"VALLEY",start:"16:00",end:"16:40"},{name:"Elder",day:"Jeudi 18",stage:"VALLEY",start:"17:30",end:"18:10"},{name:"The Inspector Cluzo",day:"Jeudi 18",stage:"VALLEY",start:"19:05",end:"19:55"},{name:"Uncle Acid And The Deadbeats",day:"Jeudi 18",stage:"VALLEY",start:"21:05",end:"22:05"},{name:"Kadavar",day:"Jeudi 18",stage:"VALLEY",start:"23:45",end:"00:55"},{name:"Perchta",day:"Jeudi 18",stage:"TEMPLE",start:"16:45",end:"17:25"},{name:"Winterfylleth",day:"Jeudi 18",stage:"TEMPLE",start:"18:15",end:"19:00"},{name:"Borknagar",day:"Jeudi 18",stage:"TEMPLE",start:"20:00",end:"21:00"},{name:"Skald",day:"Jeudi 18",stage:"TEMPLE",start:"22:10",end:"23:10"},{name:"Feuerschwanz",day:"Jeudi 18",stage:"TEMPLE",start:"01:00",end:"02:00"},{name:"Skaphos",day:"Jeudi 18",stage:"ALTAR",start:"16:00",end:"16:40"},{name:"Devangelic",day:"Jeudi 18",stage:"ALTAR",start:"17:30",end:"18:10"},{name:"Rivers Of Nihil",day:"Jeudi 18",stage:"ALTAR",start:"19:05",end:"19:55"},{name:"The Halo Effect",day:"Jeudi 18",stage:"ALTAR",start:"21:05",end:"22:05"},{name:"Igorrr",day:"Jeudi 18",stage:"ALTAR",start:"23:45",end:"00:55"},{name:"BlackRain",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"11:05",end:"11:35"},{name:"Wings Of Steel",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"12:15",end:"12:45"},{name:"Sortilege",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"13:35",end:"14:15"},{name:"Queensryche",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"15:05",end:"15:50"},{name:"Accept",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"16:45",end:"17:35"},{name:"Helloween",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"18:35",end:"19:55"},{name:"Iron Maiden",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"21:00",end:"23:10"},{name:"Ultra Vomit",day:"Vendredi 19",stage:"MAINSTAGE 01",start:"00:50",end:"02:00"},{name:"Uravena",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"10:30",end:"11:00"},{name:"Return To Dust",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"11:40",end:"12:10"},{name:"Brothers Of Metal",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"12:50",end:"13:30"},{name:"Tesseract",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"14:20",end:"15:00"},{name:"Bloodywood",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"15:55",end:"16:40"},{name:"Sepultura",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"17:40",end:"18:30"},{name:"Opeth",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"20:00",end:"20:55"},{name:"Sabaton",day:"Vendredi 19",stage:"MAINSTAGE 02",start:"23:15",end:"00:45"},{name:"Wake The Dead",day:"Vendredi 19",stage:"WARZONE",start:"11:05",end:"11:35"},{name:"GridIron",day:"Vendredi 19",stage:"WARZONE",start:"12:15",end:"12:45"},{name:"Die Spitz",day:"Vendredi 19",stage:"WARZONE",start:"13:35",end:"14:15"},{name:"Point Mort",day:"Vendredi 19",stage:"WARZONE",start:"15:05",end:"15:50"},{name:"Dying Wish",day:"Vendredi 19",stage:"WARZONE",start:"16:45",end:"17:35"},{name:"Ceremony",day:"Vendredi 19",stage:"WARZONE",start:"18:35",end:"19:25"},{name:"Malevolence",day:"Vendredi 19",stage:"WARZONE",start:"20:35",end:"21:35"},{name:"La Dispute",day:"Vendredi 19",stage:"WARZONE",start:"22:45",end:"23:45"},{name:"The Dillinger Escape Plan",day:"Vendredi 19",stage:"WARZONE",start:"00:55",end:"02:00"},{name:"Dragunov",day:"Vendredi 19",stage:"VALLEY",start:"10:30",end:"11:00"},{name:"Yarostan",day:"Vendredi 19",stage:"VALLEY",start:"11:40",end:"12:10"},{name:"Rezn",day:"Vendredi 19",stage:"VALLEY",start:"12:50",end:"13:30"},{name:"Conjurer",day:"Vendredi 19",stage:"VALLEY",start:"14:20",end:"15:00"},{name:"Stoned Jesus",day:"Vendredi 19",stage:"VALLEY",start:"15:55",end:"16:40"},{name:"Torche",day:"Vendredi 19",stage:"VALLEY",start:"17:40",end:"18:30"},{name:"Loathe",day:"Vendredi 19",stage:"VALLEY",start:"19:30",end:"20:30"},{name:"Slift",day:"Vendredi 19",stage:"VALLEY",start:"21:40",end:"22:40"},{name:"Mastodon",day:"Vendredi 19",stage:"VALLEY",start:"23:50",end:"00:50"},{name:"Mourir",day:"Vendredi 19",stage:"TEMPLE",start:"11:05",end:"11:35"},{name:"Killus",day:"Vendredi 19",stage:"TEMPLE",start:"12:15",end:"12:45"},{name:"Ponte Del Diavolo",day:"Vendredi 19",stage:"TEMPLE",start:"13:35",end:"14:15"},{name:"Einherjer",day:"Vendredi 19",stage:"TEMPLE",start:"15:05",end:"15:50"},{name:"MOL",day:"Vendredi 19",stage:"TEMPLE",start:"16:45",end:"17:35"},{name:"Carach Angren",day:"Vendredi 19",stage:"TEMPLE",start:"18:35",end:"19:25"},{name:"Rotting Christ",day:"Vendredi 19",stage:"TEMPLE",start:"20:35",end:"21:35"},{name:"My Dying Bride",day:"Vendredi 19",stage:"TEMPLE",start:"22:45",end:"23:45"},{name:"The Gathering",day:"Vendredi 19",stage:"TEMPLE",start:"00:55",end:"02:00"},{name:"Impureza",day:"Vendredi 19",stage:"ALTAR",start:"10:30",end:"11:00"},{name:"Esodic",day:"Vendredi 19",stage:"ALTAR",start:"11:40",end:"12:10"},{name:"Crypta",day:"Vendredi 19",stage:"ALTAR",start:"12:50",end:"13:30"},{name:"Blood Red Throne",day:"Vendredi 19",stage:"ALTAR",start:"14:20",end:"15:00"},{name:"Sinsaenum",day:"Vendredi 19",stage:"ALTAR",start:"15:55",end:"16:40"},{name:"Sylosis",day:"Vendredi 19",stage:"ALTAR",start:"17:40",end:"18:30"},{name:"Decapitated",day:"Vendredi 19",stage:"ALTAR",start:"19:30",end:"20:30"},{name:"Periphery",day:"Vendredi 19",stage:"ALTAR",start:"21:40",end:"22:40"},{name:"Blood Incantation",day:"Vendredi 19",stage:"ALTAR",start:"23:50",end:"00:50"},{name:"Slay Squad",day:"Samedi 20",stage:"MAINSTAGE 01",start:"11:05",end:"11:35"},{name:"Thornhill",day:"Samedi 20",stage:"MAINSTAGE 01",start:"12:25",end:"13:05"},{name:"House Of Protection",day:"Samedi 20",stage:"MAINSTAGE 01",start:"13:55",end:"14:35"},{name:"Sidilarsen",day:"Samedi 20",stage:"MAINSTAGE 01",start:"15:25",end:"16:05"},{name:"Enhancer",day:"Samedi 20",stage:"MAINSTAGE 01",start:"16:55",end:"17:40"},{name:"Tom Morello",day:"Samedi 20",stage:"MAINSTAGE 01",start:"18:35",end:"19:25"},{name:"A Perfect Circle",day:"Samedi 20",stage:"MAINSTAGE 01",start:"20:35",end:"21:45"},{name:"Limp Bizkit",day:"Samedi 20",stage:"MAINSTAGE 01",start:"23:10",end:"00:30"},{name:"Locomuerte",day:"Samedi 20",stage:"MAINSTAGE 02",start:"10:30",end:"11:00"},{name:"Insanity Alert",day:"Samedi 20",stage:"MAINSTAGE 02",start:"11:40",end:"12:20"},{name:"Escuela Grind",day:"Samedi 20",stage:"MAINSTAGE 02",start:"13:10",end:"13:50"},{name:"Gatecreeper",day:"Samedi 20",stage:"MAINSTAGE 02",start:"14:40",end:"15:20"},{name:"Crisix",day:"Samedi 20",stage:"MAINSTAGE 02",start:"16:10",end:"16:50"},{name:"Cavalera Chaos AD",day:"Samedi 20",stage:"MAINSTAGE 02",start:"17:45",end:"18:30"},{name:"Anthrax",day:"Samedi 20",stage:"MAINSTAGE 02",start:"19:30",end:"20:30"},{name:"Megadeth",day:"Samedi 20",stage:"MAINSTAGE 02",start:"21:50",end:"23:05"},{name:"Behemoth",day:"Samedi 20",stage:"MAINSTAGE 02",start:"00:35",end:"01:50"},{name:"False Reality",day:"Samedi 20",stage:"WARZONE",start:"11:05",end:"11:35"},{name:"Combust",day:"Samedi 20",stage:"WARZONE",start:"12:25",end:"13:05"},{name:"King 810",day:"Samedi 20",stage:"WARZONE",start:"13:55",end:"14:35"},{name:"Cancer Bats",day:"Samedi 20",stage:"WARZONE",start:"15:25",end:"16:05"},{name:"Trash Talk",day:"Samedi 20",stage:"WARZONE",start:"16:55",end:"17:40"},{name:"Cro-Mags",day:"Samedi 20",stage:"WARZONE",start:"18:35",end:"19:25"},{name:"Kublai Khan TX",day:"Samedi 20",stage:"WARZONE",start:"20:35",end:"21:35"},{name:"Lionheart",day:"Samedi 20",stage:"WARZONE",start:"22:45",end:"23:45"},{name:"Hatebreed",day:"Samedi 20",stage:"WARZONE",start:"00:55",end:"02:00"},{name:"Cold Capsule",day:"Samedi 20",stage:"VALLEY",start:"10:30",end:"11:00"},{name:"Bruit Delta",day:"Samedi 20",stage:"VALLEY",start:"11:40",end:"12:20"},{name:"Fange",day:"Samedi 20",stage:"VALLEY",start:"13:10",end:"13:50"},{name:"Psychonaut",day:"Samedi 20",stage:"VALLEY",start:"14:40",end:"15:20"},{name:"Pigs x7",day:"Samedi 20",stage:"VALLEY",start:"16:10",end:"16:50"},{name:"God Is An Astronaut",day:"Samedi 20",stage:"VALLEY",start:"17:45",end:"18:30"},{name:"The Young Gods",day:"Samedi 20",stage:"VALLEY",start:"19:30",end:"20:30"},{name:"Amenra",day:"Samedi 20",stage:"VALLEY",start:"21:40",end:"22:40"},{name:"Cult Of Luna",day:"Samedi 20",stage:"VALLEY",start:"23:50",end:"00:50"},{name:"Viglyos",day:"Samedi 20",stage:"TEMPLE",start:"11:05",end:"11:35"},{name:"Hulder",day:"Samedi 20",stage:"TEMPLE",start:"12:25",end:"13:05"},{name:"Non Est Deus",day:"Samedi 20",stage:"TEMPLE",start:"13:55",end:"14:35"},{name:"1914",day:"Samedi 20",stage:"TEMPLE",start:"15:25",end:"16:05"},{name:"Gaerea",day:"Samedi 20",stage:"TEMPLE",start:"16:55",end:"17:40"},{name:"Oranssi Pazuzu",day:"Samedi 20",stage:"TEMPLE",start:"18:35",end:"19:25"},{name:"Aura Noir",day:"Samedi 20",stage:"TEMPLE",start:"20:35",end:"21:35"},{name:"Old Man s Child",day:"Samedi 20",stage:"TEMPLE",start:"22:45",end:"23:45"},{name:"DVRK",day:"Samedi 20",stage:"ALTAR",start:"10:30",end:"11:00"},{name:"Profanation",day:"Samedi 20",stage:"ALTAR",start:"11:40",end:"12:20"},{name:"Cabal",day:"Samedi 20",stage:"ALTAR",start:"13:10",end:"13:50"},{name:"Defeated Sanity",day:"Samedi 20",stage:"ALTAR",start:"14:40",end:"15:20"},{name:"Severe Torture",day:"Samedi 20",stage:"ALTAR",start:"16:10",end:"16:50"},{name:"Obscura",day:"Samedi 20",stage:"ALTAR",start:"17:45",end:"18:30"},{name:"Septicflesh",day:"Samedi 20",stage:"ALTAR",start:"19:30",end:"20:30"},{name:"Carcass",day:"Samedi 20",stage:"ALTAR",start:"21:40",end:"22:40"},{name:"Deicide",day:"Samedi 20",stage:"ALTAR",start:"23:50",end:"00:50"},{name:"Not Scientists",day:"Dimanche 21",stage:"MAINSTAGE 01",start:"11:05",end:"11:35"},{name:"The Dwarves",day:"Dimanche 21",stage:"MAINSTAGE 01",start:"12:15",end:"12:45"},{name:"The Bones",day:"Dimanche 21",stage:"MAINSTAGE 01",start:"13:35",end:"14:15"},{name:"The Ataris",day:"Dimanche 21",stage:"MAINSTAGE 01",start:"15:10",end:"15:55"},{name:"Pennywise",day:"Dimanche 21",stage:"MAINSTAGE 01",start:"16:50",end:"17:40"},{name:"Sum 41",day:"Dimanche 21",stage:"MAINSTAGE 01",start:"18:35",end:"19:35"},{name:"Simple Plan",day:"Dimanche 21",stage:"MAINSTAGE 01",start:"20:40",end:"21:50"},{name:"Green Day",day:"Dimanche 21",stage:"MAINSTAGE 01",start:"23:10",end:"01:00"},{name:"Dropkick Murphys",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"10:30",end:"11:00"},{name:"Guttermouth",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"11:40",end:"12:10"},{name:"Less Than Jake",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"12:50",end:"13:30"},{name:"Anti-Flag",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"14:20",end:"15:00"},{name:"NOFX",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"15:55",end:"16:45"},{name:"The Offspring",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"17:45",end:"18:30"},{name:"Bad Religion",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"19:40",end:"20:35"},{name:"Rancid",day:"Dimanche 21",stage:"MAINSTAGE 02",start:"21:55",end:"23:05"},{name:"Tiger Army",day:"Dimanche 21",stage:"WARZONE",start:"11:05",end:"11:35"},{name:"Adolescents",day:"Dimanche 21",stage:"WARZONE",start:"12:15",end:"12:45"},{name:"Descendents",day:"Dimanche 21",stage:"WARZONE",start:"13:35",end:"14:15"},{name:"The Bouncing Souls",day:"Dimanche 21",stage:"WARZONE",start:"15:10",end:"15:55"},{name:"H2O",day:"Dimanche 21",stage:"WARZONE",start:"16:50",end:"17:40"},{name:"Madball",day:"Dimanche 21",stage:"WARZONE",start:"18:35",end:"19:25"},{name:"Agnostic Front",day:"Dimanche 21",stage:"WARZONE",start:"20:40",end:"21:40"},{name:"Sick Of It All",day:"Dimanche 21",stage:"WARZONE",start:"22:50",end:"23:50"},{name:"Murphy s Law",day:"Dimanche 21",stage:"VALLEY",start:"10:30",end:"11:00"},{name:"The Misfits",day:"Dimanche 21",stage:"VALLEY",start:"11:40",end:"12:20"},{name:"Dead Kennedys",day:"Dimanche 21",stage:"VALLEY",start:"13:10",end:"13:50"},{name:"Suicidal Tendencies",day:"Dimanche 21",stage:"VALLEY",start:"14:40",end:"15:20"},{name:"Circle Jerks",day:"Dimanche 21",stage:"VALLEY",start:"16:10",end:"16:50"},{name:"X",day:"Dimanche 21",stage:"VALLEY",start:"17:45",end:"18:30"},{name:"Black Flag",day:"Dimanche 21",stage:"VALLEY",start:"19:30",end:"20:30"},{name:"Fear",day:"Dimanche 21",stage:"VALLEY",start:"21:40",end:"22:40"},{name:"DOA",day:"Dimanche 21",stage:"TEMPLE",start:"11:05",end:"11:35"},{name:"GBH",day:"Dimanche 21",stage:"TEMPLE",start:"12:15",end:"12:45"},{name:"The Exploited",day:"Dimanche 21",stage:"TEMPLE",start:"13:35",end:"14:15"},{name:"Discharge",day:"Dimanche 21",stage:"TEMPLE",start:"15:10",end:"15:55"},{name:"Subhumans",day:"Dimanche 21",stage:"TEMPLE",start:"16:50",end:"17:40"},{name:"Conflict",day:"Dimanche 21",stage:"TEMPLE",start:"18:35",end:"19:25"},{name:"Crass",day:"Dimanche 21",stage:"TEMPLE",start:"20:40",end:"21:40"},{name:"Flux Of Pink Indians",day:"Dimanche 21",stage:"ALTAR",start:"10:30",end:"11:00"},{name:"Rudimentary Peni",day:"Dimanche 21",stage:"ALTAR",start:"11:40",end:"12:20"},{name:"Icons Of Filth",day:"Dimanche 21",stage:"ALTAR",start:"13:10",end:"13:50"},{name:"Poison Idea",day:"Dimanche 21",stage:"ALTAR",start:"14:40",end:"15:20"},{name:"The Varukers",day:"Dimanche 21",stage:"ALTAR",start:"16:10",end:"16:50"},{name:"Doom",day:"Dimanche 21",stage:"ALTAR",start:"17:45",end:"18:30"},{name:"Anti-Cimex",day:"Dimanche 21",stage:"ALTAR",start:"19:30",end:"20:30"}];
+var FESTIVAL={name:"HELLFEST",year:2026,
+  dates:{"Jeudi 18":"2026-06-18","Vendredi 19":"2026-06-19","Samedi 20":"2026-06-20","Dimanche 21":"2026-06-21"},
+  days:["Jeudi 18","Vendredi 19","Samedi 20","Dimanche 21"],
+  stages:[
+    {id:"MAINSTAGE 01",css:"stage-ms1",short:"MS1",order:0},
+    {id:"MAINSTAGE 02",css:"stage-ms2",short:"MS2",order:1},
+    {id:"WARZONE",css:"stage-warzone",short:"WARZONE",order:2},
+    {id:"VALLEY",css:"stage-valley",short:"VALLEY",order:3},
+    {id:"TEMPLE",css:"stage-temple",short:"TEMPLE",order:4},
+    {id:"ALTAR",css:"stage-altar",short:"ALTAR",order:5}
+  ]
+};
+  var BANDS = [
+    // ── JEUDI 18 ────────────────────────────────────────────────
+    // MAINSTAGE 01
+    { name: "We Came As Romans", day: "Jeudi 18", stage: "MAINSTAGE 01", start: "16:00", end: "16:40" },
+    { name: "The Plot In You", day: "Jeudi 18", stage: "MAINSTAGE 01", start: "17:30", end: "18:10" },
+    { name: "Breaking Benjamin", day: "Jeudi 18", stage: "MAINSTAGE 01", start: "19:05", end: "19:55" },
+    { name: "Papa Roach", day: "Jeudi 18", stage: "MAINSTAGE 01", start: "21:15", end: "22:25" },
+    { name: "Bring Me The Horizon", day: "Jeudi 18", stage: "MAINSTAGE 01", start: "23:45", end: "01:15" },
+    // MAINSTAGE 02
+    { name: "Mikkey Dee With Friends", day: "Jeudi 18", stage: "MAINSTAGE 02", start: "16:45", end: "17:25" },
+    { name: "The Pretty Reckless", day: "Jeudi 18", stage: "MAINSTAGE 02", start: "18:15", end: "19:00" },
+    { name: "Deep Purple", day: "Jeudi 18", stage: "MAINSTAGE 02", start: "20:00", end: "21:10" },
+    { name: "Alice Cooper", day: "Jeudi 18", stage: "MAINSTAGE 02", start: "22:30", end: "23:30" },
+    { name: "Tribute To Ozzy Osbourne", day: "Jeudi 18", stage: "MAINSTAGE 02", start: "23:30", end: "23:40" },
+    { name: "Alestorm", day: "Jeudi 18", stage: "MAINSTAGE 02", start: "01:20", end: "02:10" },
+    // WARZONE
+    { name: "Satanic Surfers", day: "Jeudi 18", stage: "WARZONE", start: "16:45", end: "17:25" },
+    { name: "Shelter", day: "Jeudi 18", stage: "WARZONE", start: "18:15", end: "19:00" },
+    { name: "Lagwagon", day: "Jeudi 18", stage: "WARZONE", start: "20:00", end: "21:00" },
+    { name: "All Time Low", day: "Jeudi 18", stage: "WARZONE", start: "22:10", end: "23:10" },
+    { name: "Social Distortion", day: "Jeudi 18", stage: "WARZONE", start: "01:00", end: "02:00" },
+    // VALLEY
+    { name: "Truckfighters", day: "Jeudi 18", stage: "VALLEY", start: "16:00", end: "16:40" },
+    { name: "Elder", day: "Jeudi 18", stage: "VALLEY", start: "17:30", end: "18:10" },
+    { name: "The Inspector Cluzo", day: "Jeudi 18", stage: "VALLEY", start: "19:05", end: "19:55" },
+    { name: "Uncle Acid And The Deadbeats", day: "Jeudi 18", stage: "VALLEY", start: "21:05", end: "22:05" },
+    { name: "Kadavar", day: "Jeudi 18", stage: "VALLEY", start: "23:45", end: "00:55" },
+    // TEMPLE
+    { name: "Perchta", day: "Jeudi 18", stage: "TEMPLE", start: "16:45", end: "17:25" },
+    { name: "Winterfylleth", day: "Jeudi 18", stage: "TEMPLE", start: "18:15", end: "19:00" },
+    { name: "Borknagar", day: "Jeudi 18", stage: "TEMPLE", start: "20:00", end: "21:00" },
+    { name: "Skald", day: "Jeudi 18", stage: "TEMPLE", start: "22:10", end: "23:10" },
+    { name: "Feuerschwanz", day: "Jeudi 18", stage: "TEMPLE", start: "01:00", end: "02:00" },
+    // ALTAR
+    { name: "Skaphos", day: "Jeudi 18", stage: "ALTAR", start: "16:00", end: "16:40" },
+    { name: "Devangelic", day: "Jeudi 18", stage: "ALTAR", start: "17:30", end: "18:10" },
+    { name: "Rivers Of Nihil", day: "Jeudi 18", stage: "ALTAR", start: "19:05", end: "19:55" },
+    { name: "The Halo Effect", day: "Jeudi 18", stage: "ALTAR", start: "21:05", end: "22:05" },
+    { name: "Igorrr", day: "Jeudi 18", stage: "ALTAR", start: "23:45", end: "00:55" },
+
+    // ── VENDREDI 19 ─────────────────────────────────────────────
+    // MAINSTAGE 01
+    { name: "BlackRain", day: "Vendredi 19", stage: "MAINSTAGE 01", start: "11:05", end: "11:35" },
+    { name: "Wings Of Steel", day: "Vendredi 19", stage: "MAINSTAGE 01", start: "12:15", end: "12:45" },
+    { name: "Sortilège", day: "Vendredi 19", stage: "MAINSTAGE 01", start: "13:35", end: "14:15" },
+    { name: "Queensrÿche", day: "Vendredi 19", stage: "MAINSTAGE 01", start: "15:05", end: "15:50" },
+    { name: "Accept", day: "Vendredi 19", stage: "MAINSTAGE 01", start: "16:45", end: "17:35" },
+    { name: "Helloween", day: "Vendredi 19", stage: "MAINSTAGE 01", start: "18:35", end: "19:55" },
+    { name: "Iron Maiden", day: "Vendredi 19", stage: "MAINSTAGE 01", start: "21:00", end: "23:10" },
+    { name: "Ultra Vomit", day: "Vendredi 19", stage: "MAINSTAGE 01", start: "00:50", end: "02:00" },
+    // MAINSTAGE 02
+    { name: "Uravena", day: "Vendredi 19", stage: "MAINSTAGE 02", start: "10:30", end: "11:00" },
+    { name: "Return To Dust", day: "Vendredi 19", stage: "MAINSTAGE 02", start: "11:40", end: "12:10" },
+    { name: "Brothers Of Metal", day: "Vendredi 19", stage: "MAINSTAGE 02", start: "12:50", end: "13:30" },
+    { name: "Tesseract", day: "Vendredi 19", stage: "MAINSTAGE 02", start: "14:20", end: "15:00" },
+    { name: "Bloodywood", day: "Vendredi 19", stage: "MAINSTAGE 02", start: "15:55", end: "16:40" },
+    { name: "Sepultura", day: "Vendredi 19", stage: "MAINSTAGE 02", start: "17:40", end: "18:30" },
+    { name: "Opeth", day: "Vendredi 19", stage: "MAINSTAGE 02", start: "20:00", end: "20:55" },
+    { name: "Sabaton", day: "Vendredi 19", stage: "MAINSTAGE 02", start: "23:15", end: "00:45" },
+    // WARZONE
+    { name: "Wake The Dead", day: "Vendredi 19", stage: "WARZONE", start: "11:05", end: "11:35" },
+    { name: "Gridiron", day: "Vendredi 19", stage: "WARZONE", start: "12:15", end: "12:45" },
+    { name: "Die Spitz", day: "Vendredi 19", stage: "WARZONE", start: "13:35", end: "14:15" },
+    { name: "Point Mort", day: "Vendredi 19", stage: "WARZONE", start: "15:05", end: "15:50" },
+    { name: "Dying Wish", day: "Vendredi 19", stage: "WARZONE", start: "16:45", end: "17:35" },
+    { name: "Ceremony", day: "Vendredi 19", stage: "WARZONE", start: "18:35", end: "19:25" },
+    { name: "Malevolence", day: "Vendredi 19", stage: "WARZONE", start: "20:35", end: "21:35" },
+    { name: "La Dispute", day: "Vendredi 19", stage: "WARZONE", start: "22:45", end: "23:45" },
+    { name: "The Dillinger Escape Plan", day: "Vendredi 19", stage: "WARZONE", start: "00:55", end: "02:00" },
+    // VALLEY
+    { name: "Dragunov", day: "Vendredi 19", stage: "VALLEY", start: "10:30", end: "11:00" },
+    { name: "Yarostan", day: "Vendredi 19", stage: "VALLEY", start: "11:40", end: "12:10" },
+    { name: "Rezn", day: "Vendredi 19", stage: "VALLEY", start: "12:50", end: "13:30" },
+    { name: "Conjurer", day: "Vendredi 19", stage: "VALLEY", start: "14:20", end: "15:00" },
+    { name: "Stoned Jesus", day: "Vendredi 19", stage: "VALLEY", start: "15:55", end: "16:40" },
+    { name: "Torche", day: "Vendredi 19", stage: "VALLEY", start: "17:40", end: "18:30" },
+    { name: "Loathe", day: "Vendredi 19", stage: "VALLEY", start: "19:30", end: "20:30" },
+    { name: "Slift", day: "Vendredi 19", stage: "VALLEY", start: "21:40", end: "22:40" },
+    { name: "Mastodon", day: "Vendredi 19", stage: "VALLEY", start: "23:50", end: "00:50" },
+    // TEMPLE
+    { name: "Mourir", day: "Vendredi 19", stage: "TEMPLE", start: "11:05", end: "11:35" },
+    { name: "Killus", day: "Vendredi 19", stage: "TEMPLE", start: "12:15", end: "12:45" },
+    { name: "Ponte Del Diavolo", day: "Vendredi 19", stage: "TEMPLE", start: "13:35", end: "14:15" },
+    { name: "Einherjer", day: "Vendredi 19", stage: "TEMPLE", start: "15:05", end: "15:50" },
+    { name: "Møl", day: "Vendredi 19", stage: "TEMPLE", start: "16:45", end: "17:35" },
+    { name: "Carach Angren", day: "Vendredi 19", stage: "TEMPLE", start: "18:35", end: "19:25" },
+    { name: "Rotting Christ", day: "Vendredi 19", stage: "TEMPLE", start: "20:35", end: "21:35" },
+    { name: "My Dying Bride", day: "Vendredi 19", stage: "TEMPLE", start: "22:45", end: "23:45" },
+    { name: "The Gathering", day: "Vendredi 19", stage: "TEMPLE", start: "00:55", end: "02:00" },
+    // ALTAR
+    { name: "Impureza", day: "Vendredi 19", stage: "ALTAR", start: "10:30", end: "11:00" },
+    { name: "Esodic", day: "Vendredi 19", stage: "ALTAR", start: "11:40", end: "12:10" },
+    { name: "Crypta", day: "Vendredi 19", stage: "ALTAR", start: "12:50", end: "13:30" },
+    { name: "Blood Red Throne", day: "Vendredi 19", stage: "ALTAR", start: "14:20", end: "15:00" },
+    { name: "Sinsaenum", day: "Vendredi 19", stage: "ALTAR", start: "15:55", end: "16:40" },
+    { name: "Sylosis", day: "Vendredi 19", stage: "ALTAR", start: "17:40", end: "18:30" },
+    { name: "Decapitated", day: "Vendredi 19", stage: "ALTAR", start: "19:30", end: "20:30" },
+    { name: "Periphery", day: "Vendredi 19", stage: "ALTAR", start: "21:40", end: "22:40" },
+    { name: "Blood Incantation", day: "Vendredi 19", stage: "ALTAR", start: "23:50", end: "00:50" },
+
+    // ── SAMEDI 20 ────────────────────────────────────────────────
+    // MAINSTAGE 01
+    { name: "Slay Squad", day: "Samedi 20", stage: "MAINSTAGE 01", start: "11:05", end: "11:35" },
+    { name: "Thornhill", day: "Samedi 20", stage: "MAINSTAGE 01", start: "12:25", end: "13:05" },
+    { name: "House Of Protection", day: "Samedi 20", stage: "MAINSTAGE 01", start: "13:55", end: "14:35" },
+    { name: "Sidilarsen", day: "Samedi 20", stage: "MAINSTAGE 01", start: "15:25", end: "16:05" },
+    { name: "Enhancer", day: "Samedi 20", stage: "MAINSTAGE 01", start: "16:55", end: "17:40" },
+    { name: "Tom Morello", day: "Samedi 20", stage: "MAINSTAGE 01", start: "18:35", end: "19:25" },
+    { name: "A Perfect Circle", day: "Samedi 20", stage: "MAINSTAGE 01", start: "20:35", end: "21:45" },
+    { name: "Limp Bizkit", day: "Samedi 20", stage: "MAINSTAGE 01", start: "23:10", end: "00:30" },
+    // MAINSTAGE 02
+    { name: "Locomuerte", day: "Samedi 20", stage: "MAINSTAGE 02", start: "10:30", end: "11:00" },
+    { name: "Insanity Alert", day: "Samedi 20", stage: "MAINSTAGE 02", start: "11:40", end: "12:20" },
+    { name: "Escuela Grind", day: "Samedi 20", stage: "MAINSTAGE 02", start: "13:10", end: "13:50" },
+    { name: "Gatecreeper", day: "Samedi 20", stage: "MAINSTAGE 02", start: "14:40", end: "15:20" },
+    { name: "Crisix", day: "Samedi 20", stage: "MAINSTAGE 02", start: "16:10", end: "16:50" },
+    { name: "Cavalera «Chaos A.D.»", day: "Samedi 20", stage: "MAINSTAGE 02", start: "17:45", end: "18:30" },
+    { name: "Anthrax", day: "Samedi 20", stage: "MAINSTAGE 02", start: "19:30", end: "20:30" },
+    { name: "Megadeth", day: "Samedi 20", stage: "MAINSTAGE 02", start: "21:50", end: "23:05" },
+    { name: "Behemoth", day: "Samedi 20", stage: "MAINSTAGE 02", start: "00:35", end: "01:50" },
+    // WARZONE
+    { name: "False Reality", day: "Samedi 20", stage: "WARZONE", start: "11:05", end: "11:35" },
+    { name: "Combust", day: "Samedi 20", stage: "WARZONE", start: "12:25", end: "13:05" },
+    { name: "King 810", day: "Samedi 20", stage: "WARZONE", start: "13:55", end: "14:35" },
+    { name: "Cancer Bats", day: "Samedi 20", stage: "WARZONE", start: "15:25", end: "16:05" },
+    { name: "Trash Talk", day: "Samedi 20", stage: "WARZONE", start: "16:55", end: "17:40" },
+    { name: "Cro-Mags", day: "Samedi 20", stage: "WARZONE", start: "18:35", end: "19:25" },
+    { name: "Kublai Khan TX", day: "Samedi 20", stage: "WARZONE", start: "20:35", end: "21:35" },
+    { name: "Lionheart", day: "Samedi 20", stage: "WARZONE", start: "22:45", end: "23:45" },
+    { name: "Hatebreed", day: "Samedi 20", stage: "WARZONE", start: "00:55", end: "02:00" },
+    // VALLEY
+    { name: "Cold Capsule", day: "Samedi 20", stage: "VALLEY", start: "10:30", end: "11:00" },
+    { name: "Bruit ∆", day: "Samedi 20", stage: "VALLEY", start: "11:40", end: "12:20" },
+    { name: "Fange", day: "Samedi 20", stage: "VALLEY", start: "13:10", end: "13:50" },
+    { name: "Psychonaut", day: "Samedi 20", stage: "VALLEY", start: "14:40", end: "15:20" },
+    { name: "Pigs Pigs Pigs Pigs Pigs Pigs Pigs", day: "Samedi 20", stage: "VALLEY", start: "16:10", end: "16:50" },
+    { name: "God Is An Astronaut", day: "Samedi 20", stage: "VALLEY", start: "17:45", end: "18:30" },
+    { name: "The Young Gods", day: "Samedi 20", stage: "VALLEY", start: "19:30", end: "20:30" },
+    { name: "Amenra", day: "Samedi 20", stage: "VALLEY", start: "21:40", end: "22:40" },
+    { name: "Cult Of Luna", day: "Samedi 20", stage: "VALLEY", start: "23:50", end: "00:50" },
+    // TEMPLE
+    { name: "Vigljós", day: "Samedi 20", stage: "TEMPLE", start: "11:05", end: "11:35" },
+    { name: "Hulder", day: "Samedi 20", stage: "TEMPLE", start: "12:25", end: "13:05" },
+    { name: "Non Est Deus", day: "Samedi 20", stage: "TEMPLE", start: "13:55", end: "14:35" },
+    { name: "1914", day: "Samedi 20", stage: "TEMPLE", start: "15:25", end: "16:05" },
+    { name: "Gaerea", day: "Samedi 20", stage: "TEMPLE", start: "16:55", end: "17:40" },
+    { name: "Oranssi Pazuzu", day: "Samedi 20", stage: "TEMPLE", start: "18:35", end: "19:25" },
+    { name: "Aura Noir", day: "Samedi 20", stage: "TEMPLE", start: "20:35", end: "21:35" },
+    { name: "Old Man's Child", day: "Samedi 20", stage: "TEMPLE", start: "22:45", end: "23:45" },
+    // ALTAR
+    { name: "DVRK", day: "Samedi 20", stage: "ALTAR", start: "10:30", end: "11:00" },
+    { name: "Profanation", day: "Samedi 20", stage: "ALTAR", start: "11:40", end: "12:20" },
+    { name: "Cabal", day: "Samedi 20", stage: "ALTAR", start: "13:10", end: "13:50" },
+    { name: "Defeated Sanity", day: "Samedi 20", stage: "ALTAR", start: "14:40", end: "15:20" },
+    { name: "Severe Torture", day: "Samedi 20", stage: "ALTAR", start: "16:10", end: "16:50" },
+    { name: "Obscura", day: "Samedi 20", stage: "ALTAR", start: "17:45", end: "18:30" },
+    { name: "Septicflesh", day: "Samedi 20", stage: "ALTAR", start: "19:30", end: "20:30" },
+    { name: "Carcass", day: "Samedi 20", stage: "ALTAR", start: "21:40", end: "22:40" },
+    { name: "Deicide", day: "Samedi 20", stage: "ALTAR", start: "23:50", end: "00:50" },
+
+    // ── DIMANCHE 21 ─────────────────────────────────────────────
+    // MAINSTAGE 01
+    { name: "Not Scientists", day: "Dimanche 21", stage: "MAINSTAGE 01", start: "11:05", end: "11:35" },
+    { name: "The Dwarves", day: "Dimanche 21", stage: "MAINSTAGE 01", start: "12:15", end: "12:45" },
+    { name: "The Bones", day: "Dimanche 21", stage: "MAINSTAGE 01", start: "13:35", end: "14:15" },
+    { name: "The Ataris", day: "Dimanche 21", stage: "MAINSTAGE 01", start: "15:10", end: "15:55" },
+    { name: "Pennywise", day: "Dimanche 21", stage: "MAINSTAGE 01", start: "16:50", end: "17:40" },
+    { name: "Rise Against", day: "Dimanche 21", stage: "MAINSTAGE 01", start: "18:40", end: "19:40" },
+    { name: "The Hives", day: "Dimanche 21", stage: "MAINSTAGE 01", start: "20:50", end: "21:50" },
+    { name: "The Offspring", day: "Dimanche 21", stage: "MAINSTAGE 01", start: "23:15", end: "00:30" },
+    // MAINSTAGE 02
+    { name: "The Funeral Portrait", day: "Dimanche 21", stage: "MAINSTAGE 02", start: "10:30", end: "11:00" },
+    { name: "Revnoir", day: "Dimanche 21", stage: "MAINSTAGE 02", start: "11:40", end: "12:10" },
+    { name: "Resolve", day: "Dimanche 21", stage: "MAINSTAGE 02", start: "12:50", end: "13:30" },
+    { name: "President", day: "Dimanche 21", stage: "MAINSTAGE 02", start: "14:20", end: "15:05" },
+    { name: "Black Veil Brides", day: "Dimanche 21", stage: "MAINSTAGE 02", start: "16:00", end: "16:45" },
+    { name: "Three Days Grace", day: "Dimanche 21", stage: "MAINSTAGE 02", start: "17:45", end: "18:35" },
+    { name: "Architects", day: "Dimanche 21", stage: "MAINSTAGE 02", start: "19:45", end: "20:45" },
+    { name: "Bad Omens", day: "Dimanche 21", stage: "MAINSTAGE 02", start: "21:55", end: "23:10" },
+    // WARZONE
+    { name: "Karen Dió", day: "Dimanche 21", stage: "WARZONE", start: "10:30", end: "11:00" },
+    { name: "Maid Of Ace", day: "Dimanche 21", stage: "WARZONE", start: "11:40", end: "12:10" },
+    { name: "End It", day: "Dimanche 21", stage: "WARZONE", start: "12:50", end: "13:30" },
+    { name: "Drain", day: "Dimanche 21", stage: "WARZONE", start: "14:20", end: "15:05" },
+    { name: "Buzzcocks", day: "Dimanche 21", stage: "WARZONE", start: "16:00", end: "16:45" },
+    { name: "Circle Jerks", day: "Dimanche 21", stage: "WARZONE", start: "17:45", end: "18:35" },
+    { name: "Agnostic Front", day: "Dimanche 21", stage: "WARZONE", start: "19:45", end: "20:45" },
+    { name: "The Adicts", day: "Dimanche 21", stage: "WARZONE", start: "21:55", end: "23:10" },
+    // VALLEY
+    { name: "Alta Rossa", day: "Dimanche 21", stage: "VALLEY", start: "11:05", end: "11:35" },
+    { name: "Gnome", day: "Dimanche 21", stage: "VALLEY", start: "12:15", end: "12:45" },
+    { name: "Black Tusk", day: "Dimanche 21", stage: "VALLEY", start: "13:35", end: "14:15" },
+    { name: "Soilent Green", day: "Dimanche 21", stage: "VALLEY", start: "15:10", end: "15:55" },
+    { name: "Eyehategod", day: "Dimanche 21", stage: "VALLEY", start: "16:50", end: "17:40" },
+    { name: "Corrosion Of Conformity", day: "Dimanche 21", stage: "VALLEY", start: "18:40", end: "19:40" },
+    { name: "Acid Bath", day: "Dimanche 21", stage: "VALLEY", start: "20:50", end: "21:50" },
+    { name: "Down", day: "Dimanche 21", stage: "VALLEY", start: "23:15", end: "00:30" },
+    // TEMPLE
+    { name: "Silhouette", day: "Dimanche 21", stage: "TEMPLE", start: "11:05", end: "11:35" },
+    { name: "Midnight Odyssey", day: "Dimanche 21", stage: "TEMPLE", start: "12:15", end: "12:45" },
+    { name: "Thy Light", day: "Dimanche 21", stage: "TEMPLE", start: "13:35", end: "14:15" },
+    { name: "Scour", day: "Dimanche 21", stage: "TEMPLE", start: "15:10", end: "15:55" },
+    { name: "Gehenna", day: "Dimanche 21", stage: "TEMPLE", start: "16:50", end: "17:40" },
+    { name: "Wolves In The Throne Room", day: "Dimanche 21", stage: "TEMPLE", start: "18:40", end: "19:40" },
+    { name: "Marduk", day: "Dimanche 21", stage: "TEMPLE", start: "20:50", end: "21:50" },
+    { name: "Mayhem", day: "Dimanche 21", stage: "TEMPLE", start: "23:15", end: "00:30" },
+    // ALTAR
+    { name: "Tempt Fate", day: "Dimanche 21", stage: "ALTAR", start: "10:30", end: "11:00" },
+    { name: "Bloodstain", day: "Dimanche 21", stage: "ALTAR", start: "11:40", end: "12:10" },
+    { name: "Sublime Cadaveric Decomposition", day: "Dimanche 21", stage: "ALTAR", start: "12:50", end: "13:30" },
+    { name: "Fulci", day: "Dimanche 21", stage: "ALTAR", start: "14:20", end: "15:05" },
+    { name: "Suicidal Angels", day: "Dimanche 21", stage: "ALTAR", start: "16:00", end: "16:45" },
+    { name: "Six Feet Under", day: "Dimanche 21", stage: "ALTAR", start: "17:45", end: "18:35" },
+    { name: "Possessed", day: "Dimanche 21", stage: "ALTAR", start: "19:45", end: "20:45" },
+    { name: "Napalm Death", day: "Dimanche 21", stage: "ALTAR", start: "21:55", end: "23:10" },
+  ];
+
 var LS_KEY='hf26_ratings',LS_NOTE_KEY='hf26_textnotes';
 function loadRatings(){try{return JSON.parse(localStorage.getItem(LS_KEY))||{};}catch(e){return {};}}
 function saveRatings(r){localStorage.setItem(LS_KEY,JSON.stringify(r));}
@@ -151,32 +379,61 @@ function saveNotes(n){localStorage.setItem(LS_NOTE_KEY,JSON.stringify(n));}
 var ratings=loadRatings(),textNotes=loadNotes();
 function bandKey(b){return b.day+'|'+b.name;}
 var state={day:FESTIVAL.days[0],stage:'all',sort:'time',search:'',showAll:false};
+
 document.getElementById('festTitle').textContent=FESTIVAL.name;
 document.getElementById('festSubtitle').textContent='Mon Programme - '+FESTIVAL.year;
+
 var tabsEl=document.getElementById('dayTabs');
 var nowBtn=document.createElement('button');nowBtn.className='tab-btn now-btn';nowBtn.innerHTML='<span class="pulse"></span>NOW';
 nowBtn.onclick=function(){state.showAll=false;var d=getNowDay();if(d){state.day=d;setActiveTab(this);render();}else showToast('Pas de concert en cours','error');};
 tabsEl.appendChild(nowBtn);
 var allBtn=document.createElement('button');allBtn.className='tab-btn';allBtn.textContent='TOUS';
 allBtn.onclick=function(){state.showAll=true;setActiveTab(this);render();};tabsEl.appendChild(allBtn);
-FESTIVAL.days.forEach(function(d){var btn=document.createElement('button');btn.className='tab-btn'+(d===state.day?' active':'');btn.textContent=d;btn.onclick=function(){state.day=d;state.showAll=false;setActiveTab(this);render();};tabsEl.appendChild(btn);});
+FESTIVAL.days.forEach(function(d){
+  var btn=document.createElement('button');btn.className='tab-btn'+(d===state.day?' active':'');btn.textContent=d;
+  btn.onclick=function(){state.day=d;state.showAll=false;setActiveTab(this);render();};tabsEl.appendChild(btn);
+});
 function setActiveTab(el){tabsEl.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});el.classList.add('active');}
 tabsEl.querySelectorAll('.tab-btn')[2].classList.add('active');
+
 var stageEl=document.getElementById('stageFilters');
 var allF=document.createElement('button');allF.className='filter-btn active';allF.textContent='Toutes les scenes';
 allF.onclick=function(){state.stage='all';setActiveFilter(stageEl,this);render();};stageEl.appendChild(allF);
-FESTIVAL.stages.forEach(function(s){var btn=document.createElement('button');btn.className='filter-btn';btn.textContent=s.short;btn.onclick=function(){state.stage=s.id;setActiveFilter(stageEl,this);render();};stageEl.appendChild(btn);});
+FESTIVAL.stages.forEach(function(s){
+  var btn=document.createElement('button');btn.className='filter-btn';btn.textContent=s.short;
+  btn.onclick=function(){state.stage=s.id;setActiveFilter(stageEl,this);render();};stageEl.appendChild(btn);
+});
 function setActiveFilter(c,el){c.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});el.classList.add('active');}
+
 var sortEl=document.getElementById('sortRow');
-[['time','Horaire'],['name','Nom'],['stage','Scene'],['rating','Note']].forEach(function(p){var btn=document.createElement('button');btn.className='sort-btn'+(p[0]==='time'?' active':'');btn.textContent=p[1];btn.onclick=function(){state.sort=p[0];sortEl.querySelectorAll('.sort-btn').forEach(function(b){b.classList.remove('active');});this.classList.add('active');render();};sortEl.appendChild(btn);});
+[['time','Horaire'],['name','Nom'],['stage','Scene'],['rating','Note']].forEach(function(p){
+  var btn=document.createElement('button');btn.className='sort-btn'+(p[0]==='time'?' active':'');btn.textContent=p[1];
+  btn.onclick=function(){state.sort=p[0];sortEl.querySelectorAll('.sort-btn').forEach(function(b){b.classList.remove('active');});this.classList.add('active');render();};
+  sortEl.appendChild(btn);
+});
 document.getElementById('searchInput').oninput=function(){state.search=this.value.toLowerCase();render();};
 window.onscroll=function(){document.getElementById('scrollTop').style.display=window.scrollY>300?'block':'none';};
+
 function getNowDay(){var now=new Date();for(var d in FESTIVAL.dates){if(now.toISOString().slice(0,10)===FESTIVAL.dates[d])return d;}return null;}
-function isNowPlaying(b){var nd=getNowDay();if(!nd||b.day!==nd)return false;var now=new Date(),hm=now.getHours()*60+now.getMinutes();function tm(t){var p=t.split(':');return parseInt(p[0])*60+parseInt(p[1]);}var s=tm(b.start),e=tm(b.end);if(e<s)e+=1440;if(hm<s&&hm<360)hm+=1440;return hm>=s&&hm<e;}
+function isNowPlaying(b){
+  var nd=getNowDay();if(!nd||b.day!==nd)return false;
+  var now=new Date(),hm=now.getHours()*60+now.getMinutes();
+  function tm(t){var p=t.split(':');return parseInt(p[0])*60+parseInt(p[1]);}
+  var s=tm(b.start),e=tm(b.end);if(e<s)e+=1440;if(hm<s&&hm<360)hm+=1440;return hm>=s&&hm<e;
+}
 function getStageCSS(id){var s=FESTIVAL.stages.find(function(x){return x.id===id;});return s?s.css:'';}
 function getStageShort(id){var s=FESTIVAL.stages.find(function(x){return x.id===id;});return s?s.short:id;}
 function timeToMin(t){var p=t.split(':');var h=parseInt(p[0]),m=parseInt(p[1]);if(h<6)h+=24;return h*60+m;}
-function buildRatingSelect(currentVal){var sel=document.createElement('select');var optEmpty=document.createElement('option');optEmpty.value='';optEmpty.textContent='- /5 -';sel.appendChild(optEmpty);RATING_OPTIONS.forEach(function(v){var opt=document.createElement('option');opt.value=String(v);opt.textContent=v.toFixed(1)+' / 10';sel.appendChild(opt);});if(currentVal!==undefined&&currentVal!==null&&currentVal!==''){sel.value=parseFloat(currentVal).toFixed(1);if(sel.value)sel.classList.add('has-value');}return sel;}
+
+function parseRating(raw){
+  if(raw===undefined||raw===null||raw==='')return null;
+  var v=parseFloat(String(raw).replace(',','.'));
+  if(isNaN(v))return null;
+  if(v<0)v=0;
+  if(v>10)v=10;
+  return v;
+}
+
 function render(){
   var bands=[].concat(BANDS);
   if(!state.showAll)bands=bands.filter(function(b){return b.day===state.day;});
@@ -186,51 +443,88 @@ function render(){
   else if(state.sort==='stage'){bands.sort(function(a,b){var sa=FESTIVAL.stages.findIndex(function(x){return x.id===a.stage;});var sb=FESTIVAL.stages.findIndex(function(x){return x.id===b.stage;});return sa-sb||timeToMin(a.start)-timeToMin(b.start);});}
   else if(state.sort==='rating'){bands.sort(function(a,b){return (ratings[bandKey(b)]||0)-(ratings[bandKey(a)]||0);});}
   else{if(state.showAll){bands.sort(function(a,b){var di=FESTIVAL.days.indexOf(a.day)-FESTIVAL.days.indexOf(b.day);return di||timeToMin(a.start)-timeToMin(b.start);});}else{bands.sort(function(a,b){return timeToMin(a.start)-timeToMin(b.start);});}}
-  var notedCount=bands.filter(function(b){return ratings[bandKey(b)]>0;}).length;
-  var avg=0;if(notedCount>0){var sum=bands.reduce(function(acc,b){return acc+(ratings[bandKey(b)]||0);},0);avg=(sum/notedCount).toFixed(1);}
-  document.getElementById('statsBar').innerHTML='<span><strong>'+bands.length+'</strong> groupes</span><span><strong>'+notedCount+'</strong> notes</span>'+(notedCount>0?'<span>Moy. <strong>'+avg+'/5</strong></span>':'');
+
+  var notedCount=bands.filter(function(b){return ratings[bandKey(b)]!==undefined;}).length;
+  var avg=0;
+  if(notedCount>0){var sum=bands.reduce(function(acc,b){return acc+(ratings[bandKey(b)]||0);},0);avg=(sum/notedCount).toFixed(2);}
+  document.getElementById('statsBar').innerHTML=
+    '<span><strong>'+bands.length+'</strong> groupes</span>'+
+    '<span><strong>'+notedCount+'</strong> notes</span>'+
+    (notedCount>0?'<span>Moy. <strong>'+avg+'/10</strong></span>':'');
+
   var grid=document.getElementById('grid');grid.innerHTML='';
   if(!bands.length){grid.innerHTML='<div class="empty-state">Aucun groupe trouve</div>';return;}
+
   var lastDay='',lastTime='';
   bands.forEach(function(b){
     var key=bandKey(b);var isNow=isNowPlaying(b);
     if(state.showAll&&state.sort==='time'&&b.day!==lastDay){lastDay=b.day;lastTime='';var dh=document.createElement('div');dh.className='day-header';dh.textContent='-- '+b.day+' --';grid.appendChild(dh);}
     if(state.sort==='time'&&b.start!==lastTime){lastTime=b.start;var th=document.createElement('div');th.className='time-header';th.textContent=b.start;grid.appendChild(th);}
+
     var card=document.createElement('div');card.className='band-card'+(isNow?' now-playing':'');
     var info=document.createElement('div');info.className='band-info';
     var nameEl=document.createElement('div');nameEl.className='band-name';nameEl.textContent=b.name;
     if(isNow)nameEl.innerHTML=b.name+'<span class="now-badge">NOW</span>';
     nameEl.onclick=function(){openBandModal(b);};info.appendChild(nameEl);
-    var meta=document.createElement('div');meta.className='band-meta';meta.innerHTML='<span class="stage-badge '+getStageCSS(b.stage)+'">'+getStageShort(b.stage)+'</span><span>'+b.start+'-'+b.end+'</span>';info.appendChild(meta);card.appendChild(info);
-    var wrap=document.createElement('div');wrap.className='rating-select-wrap';
-    var desktopSel=buildRatingSelect(ratings[key]);desktopSel.title='Choisir une note';
-    desktopSel.onchange=function(){if(this.value===''){delete ratings[key];saveRatings(ratings);this.classList.remove('has-value');mobSel.value='';mobSel.classList.remove('has-value');}else{var v=parseFloat(this.value);ratings[key]=v;saveRatings(ratings);this.classList.add('has-value');mobSel.value=parseFloat(v).toFixed(1);mobSel.classList.add('has-value');}};
+    var meta=document.createElement('div');meta.className='band-meta';
+    meta.innerHTML='<span class="stage-badge '+getStageCSS(b.stage)+'">'+getStageShort(b.stage)+'</span><span>'+b.start+'-'+b.end+'</span>';
+    info.appendChild(meta);card.appendChild(info);
+
+    /* ── Rating input (decimal, free, desktop + mobile) ── */
+    var wrap=document.createElement('div');wrap.className='rating-wrap';
+    var inp=document.createElement('input');inp.type='number';inp.min='0';inp.max='10';inp.step='any';
+    inp.placeholder='—';inp.title='Note sur 10 (ex: 7.5 ou 2.33)';
+    var currentRating=ratings[key];
+    if(currentRating!==undefined&&currentRating!==null){inp.value=currentRating;inp.classList.add('has-value');}
+    var suffix=document.createElement('span');suffix.className='rating-suffix'+(currentRating!==undefined&&currentRating!==null?' has-value':'');suffix.textContent='/10';
+    inp.oninput=function(){
+      var raw=this.value.replace(',','.');var v=parseFloat(raw);
+      if(this.value===''||isNaN(v)){delete ratings[key];saveRatings(ratings);this.classList.remove('has-value');suffix.classList.remove('has-value');}
+      else{ratings[key]=v;saveRatings(ratings);this.classList.add('has-value');suffix.classList.add('has-value');}
+    };
+    inp.onblur=function(){
+      if(this.value!==''){var raw=this.value.replace(',','.');var v=parseFloat(raw);
+        if(!isNaN(v)){if(v<0)v=0;if(v>10)v=10;this.value=v;ratings[key]=v;saveRatings(ratings);this.classList.add('has-value');suffix.classList.add('has-value');}}
+    };
     var clearBtn=document.createElement('button');clearBtn.className='clear-btn';clearBtn.title='Effacer';clearBtn.textContent='x';
-    clearBtn.onclick=function(){delete ratings[key];saveRatings(ratings);desktopSel.value='';desktopSel.classList.remove('has-value');mobSel.value='';mobSel.classList.remove('has-value');};
-    wrap.appendChild(desktopSel);wrap.appendChild(clearBtn);card.appendChild(wrap);
-    var mobSel=buildRatingSelect(ratings[key]);var mobWrap=document.createElement('div');mobWrap.className='mob-sel';
-    mobSel.onchange=function(){if(this.value===''){delete ratings[key];saveRatings(ratings);this.classList.remove('has-value');desktopSel.value='';desktopSel.classList.remove('has-value');}else{var v=parseFloat(this.value);ratings[key]=v;saveRatings(ratings);this.classList.add('has-value');desktopSel.value=parseFloat(v).toFixed(1);desktopSel.classList.add('has-value');}};
-    mobWrap.appendChild(mobSel);card.appendChild(mobWrap);
+    clearBtn.onclick=function(){delete ratings[key];saveRatings(ratings);inp.value='';inp.classList.remove('has-value');suffix.classList.remove('has-value');};
+    wrap.appendChild(inp);wrap.appendChild(suffix);wrap.appendChild(clearBtn);card.appendChild(wrap);
+
+    /* ── Note texte ── */
     var noteRow=document.createElement('div');noteRow.className='band-note-row';
     var hasNote=textNotes[key]&&textNotes[key].trim().length>0;
     var noteToggle=document.createElement('button');noteToggle.className='note-toggle'+(hasNote?' active':'');noteToggle.textContent=hasNote?'Note':'+ Note';
-    var textarea=document.createElement('textarea');textarea.placeholder='Ajouter une note...';textarea.style.display=hasNote?'block':'none';if(hasNote){textarea.value=textNotes[key];textarea.classList.add('has-note');}
-    noteToggle.onclick=function(){if(textarea.style.display==='none'){textarea.style.display='block';textarea.focus();noteToggle.classList.add('active');noteToggle.textContent='Note';}else{textarea.style.display='none';if(textNotes[key]&&textNotes[key].trim()){noteToggle.classList.add('active');noteToggle.textContent='Note';}else{noteToggle.classList.remove('active');noteToggle.textContent='+ Note';}}};
+    var textarea=document.createElement('textarea');textarea.placeholder='Ajouter une note...';textarea.style.display=hasNote?'block':'none';
+    if(hasNote){textarea.value=textNotes[key];textarea.classList.add('has-note');}
+    noteToggle.onclick=function(){
+      if(textarea.style.display==='none'){textarea.style.display='block';textarea.focus();noteToggle.classList.add('active');noteToggle.textContent='Note';}
+      else{textarea.style.display='none';if(textNotes[key]&&textNotes[key].trim()){noteToggle.classList.add('active');noteToggle.textContent='Note';}else{noteToggle.classList.remove('active');noteToggle.textContent='+ Note';}}
+    };
     textarea.oninput=function(){textNotes[key]=this.value;saveNotes(textNotes);if(this.value.trim()){this.classList.add('has-note');noteToggle.classList.add('active');noteToggle.textContent='Note';}else{this.classList.remove('has-note');}};
-    noteRow.appendChild(noteToggle);noteRow.appendChild(textarea);card.appendChild(noteRow);grid.appendChild(card);
+    noteRow.appendChild(noteToggle);noteRow.appendChild(textarea);card.appendChild(noteRow);
+    grid.appendChild(card);
   });
 }
+
 function showSummary(){
-  var rated=BANDS.filter(function(b){return ratings[bandKey(b)]>0;});rated.sort(function(a,b){return (ratings[bandKey(b)]||0)-(ratings[bandKey(a)]||0);});
+  var rated=BANDS.filter(function(b){return ratings[bandKey(b)]!==undefined;});
+  rated.sort(function(a,b){return (ratings[bandKey(b)]||0)-(ratings[bandKey(a)]||0);});
   var html='<h2>Mon Recap</h2>';
   if(!rated.length){html+='<p style="color:#555;margin:20px 0">Aucun groupe note pour l instant.</p>';}
-  else{var total=rated.reduce(function(acc,b){return acc+(ratings[bandKey(b)]||0);},0);html+='<p style="color:var(--hf-grey);font-size:.8rem;margin-bottom:16px">'+rated.length+' groupe(s) - Moyenne : <strong style="color:var(--hf-gold)">'+(total/rated.length).toFixed(2)+'/5</strong></p>';
-  rated.forEach(function(b){var key=bandKey(b);var r=ratings[key];var note=textNotes[key]?textNotes[key].trim():'';html+='<div class="summary-item"><span>'+b.name+'<br><small style="color:#555">'+b.day+' - '+getStageShort(b.stage)+'</small></span><span class="summary-stars">'+parseFloat(r).toFixed(1)+'/5</span></div>';if(note)html+='<div class="summary-note">'+note+'</div>';});}
+  else{
+    var total=rated.reduce(function(acc,b){return acc+(ratings[bandKey(b)]||0);},0);
+    html+='<p style="color:var(--hf-grey);font-size:.8rem;margin-bottom:16px">'+rated.length+' groupe(s) - Moyenne : <strong style="color:var(--hf-gold)">'+(total/rated.length).toFixed(2)+'/10</strong></p>';
+    rated.forEach(function(b){var key=bandKey(b);var r=ratings[key];var note=textNotes[key]?textNotes[key].trim():'';
+      html+='<div class="summary-item"><span>'+b.name+'<br><small style="color:#555">'+b.day+' - '+getStageShort(b.stage)+'</small></span><span class="summary-stars">'+r+'/10</span></div>';
+      if(note)html+='<div class="summary-note">'+note+'</div>';
+    });
+  }
   html+='<button class="modal-close" onclick="closeModal()">Fermer</button>';
   document.getElementById('modalBody').innerHTML=html;document.getElementById('modal').classList.add('show');
 }
 function closeModal(){document.getElementById('modal').classList.remove('show');}
 document.getElementById('modal').onclick=function(e){if(e.target===this)closeModal();};
+
 function openBandModal(b){
   var s=FESTIVAL.stages.find(function(x){return x.id===b.stage;});var css=s?s.css:'';
   var html='<div class="band-modal-header"><div class="band-modal-title"><h2>'+b.name+'</h2><div class="band-modal-meta"><span class="stage-badge '+css+'">'+b.stage+'</span><span>'+b.day+'</span><span>'+b.start+' - '+b.end+'</span></div></div><button class="band-modal-close-btn" onclick="closeBandModal()">X</button></div><div class="band-modal-body"><p class="bio loading" id="bandBio">Chargement...</p><div class="band-modal-links"><a class="band-link-btn btn-spotify" href="https://open.spotify.com/search/'+encodeURIComponent(b.name)+'" target="_blank">Spotify</a><a class="band-link-btn btn-youtube" href="https://www.youtube.com/results?search_query='+encodeURIComponent(b.name)+'" target="_blank">YouTube</a><a class="band-link-btn btn-wiki" href="https://fr.wikipedia.org/wiki/Special:Search?search='+encodeURIComponent(b.name)+'" target="_blank">Wiki</a></div></div>';
@@ -239,8 +533,26 @@ function openBandModal(b){
 }
 function closeBandModal(){document.getElementById('bandModal').classList.remove('show');}
 document.getElementById('bandModal').onclick=function(e){if(e.target===this)closeBandModal();};
-function exportRatings(){var data={ratings:ratings,textNotes:textNotes,exported:new Date().toISOString(),festival:FESTIVAL.name+' '+FESTIVAL.year};var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='hellfest2026_notes.json';a.click();showToast('Notes exportees !');}
-function importRatings(evt){var file=evt.target.files[0];if(!file)return;var reader=new FileReader();reader.onload=function(e){try{var data=JSON.parse(e.target.result);if(data.ratings){ratings=data.ratings;saveRatings(ratings);}if(data.textNotes){textNotes=data.textNotes;saveNotes(textNotes);}render();showToast('Notes importees !');}catch(err){showToast('Fichier invalide','error');}};reader.readAsText(file);evt.target.value='';}
+
+function exportRatings(){
+  var data={ratings:ratings,textNotes:textNotes,exported:new Date().toISOString(),festival:FESTIVAL.name+' '+FESTIVAL.year};
+  var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='hellfest2026_notes.json';a.click();
+  showToast('Notes exportees !');
+}
+function importRatings(evt){
+  var file=evt.target.files[0];if(!file)return;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      var data=JSON.parse(e.target.result);
+      if(data.ratings){ratings=data.ratings;saveRatings(ratings);}
+      if(data.textNotes){textNotes=data.textNotes;saveNotes(textNotes);}
+      render();showToast('Notes importees !');
+    }catch(err){showToast('Fichier invalide','error');}
+  };
+  reader.readAsText(file);evt.target.value='';
+}
 function resetAll(){if(!confirm('Remettre toutes les notes a zero ?'))return;ratings={};textNotes={};saveRatings(ratings);saveNotes(textNotes);render();showToast('Notes reinitialisees');}
 function showToast(msg,type){var t=document.createElement('div');t.className='toast'+(type?' '+type:'');t.textContent=msg;document.body.appendChild(t);setTimeout(function(){t.remove();},2600);}
 render();
