@@ -642,5 +642,10 @@ function resetAll(){
 function showToast(msg,type){var t=document.createElement('div');t.className='toast'+(type?' '+type:'');t.textContent=msg;document.body.appendChild(t);setTimeout(function(){t.remove();},2600);}
 render();
 </script>
+<script>
+ if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js');
+ }
+</script>
 </body>
 </html>
